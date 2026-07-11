@@ -59,7 +59,7 @@ function PortfolioCard({
             <div className="w-full h-full flex items-center justify-center">
               {/* Gradient placeholder with project branding */}
               <div
-                className="relative w-4/5 h-4/5 rounded-lg overflow-hidden"
+                className="relative w-4/5 h-4/5 rounded-lg overflow-hidden transition-transform duration-500 group-hover:scale-[1.03]"
                 style={{
                   background: `linear-gradient(135deg, ${item.color}20 0%, rgba(0,0,0,0.3) 100%)`,
                   border: `1px solid ${item.color}20`,

@@ -112,7 +112,7 @@ export function Footer() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="btn-primary px-8 py-4 text-base"
+                  className="btn-primary text-sm"
                 >
                   <span>Start Your Project</span>
                   <ArrowUpRight size={18} className="relative z-10" />
@@ -121,7 +121,7 @@ export function Footer() {
                   href="https://wa.me/919876543210"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary px-8 py-4 text-base"
+                  className="btn-secondary text-sm"
                 >
                   💬 WhatsApp Us
                 </a>

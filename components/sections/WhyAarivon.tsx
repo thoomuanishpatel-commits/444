@@ -261,7 +261,7 @@ export function WhyAarivon() {
                 { value: "30+", label: "Countries" },
                 { value: "99%", label: "Satisfaction" },
               ].map((s, i) => (
-                <div key={i} className="glass rounded-3xl p-8 text-center border border-white/[0.06]">
+                <div key={i} className="glass rounded-3xl p-8 text-center border border-white/[0.06] transition-all duration-300 hover:border-white/12 hover:transform hover:-translate-y-1 hover:shadow-premium">
                   <p className="text-2xl lg:text-3xl font-black text-gradient tracking-tight">{s.value}</p>
                   <p className="text-xs text-white/40 mt-1 font-medium">{s.label}</p>
                 </div>
