@@ -138,6 +138,37 @@ export function Hero() {
         <div className="absolute inset-0 grid-dots opacity-40" />
       </div>
 
+      {/* Floating particles */}
+      {[
+        { left: "12%", top: "25%", size: 6, delay: 0 },
+        { left: "85%", top: "15%", size: 8, delay: 2 },
+        { left: "20%", top: "75%", size: 5, delay: 1 },
+        { left: "70%", top: "80%", size: 10, delay: 3 },
+        { left: "45%", top: "10%", size: 6, delay: 4 },
+        { left: "90%", top: "60%", size: 7, delay: 5 },
+      ].map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full pointer-events-none bg-brand-blue/20 blur-[2px]"
+          style={{
+            width: p.size + "px",
+            height: p.size + "px",
+            left: p.left,
+            top: p.top,
+          }}
+          animate={{
+            y: [0, -100, 0],
+            opacity: [0.2, 0.8, 0.2],
+          }}
+          transition={{
+            duration: 12 + i * 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: p.delay,
+          }}
+        />
+      ))}
+
       {/* ── Floating Badges ── */}
       {floatingBadges.map((badge, i) => (
         <motion.div
@@ -169,7 +200,7 @@ export function Hero() {
       ))}
 
       {/* ── Main Content ── */}
-      <div className="relative z-10 container-custom text-center flex flex-col items-center pt-36 pb-24">
+      <div className="relative z-10 container-custom text-center flex flex-col items-center pt-48 pb-32">
         {/* Top badge */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -183,12 +214,12 @@ export function Hero() {
         </motion.div>
 
         {/* Main Headline */}
-        <div className="overflow-hidden mb-6">
+        <div className="overflow-hidden mb-8">
           <motion.h1
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.0, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-xl font-black text-white max-w-5xl mx-auto leading-[1.02]"
+            className="text-5xl md:text-7xl lg:text-[84px] font-black text-white max-w-5xl mx-auto leading-[1.05] tracking-tighter"
           >
             We Build{" "}
             <span className="text-gradient-animated">Digital Empires</span>
@@ -214,7 +245,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="body-lg max-w-2xl mb-12"
+          className="body-lg max-w-[700px] mb-16 leading-[1.8] text-white/55"
         >
           AARIVON is a premium digital agency crafting world-class websites, mobile apps,
           AI solutions, and brand identities for companies that refuse to settle for ordinary.
@@ -225,11 +256,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center gap-6 mb-20"
         >
           <button
             onClick={scrollToContact}
-            className="btn-primary group"
+            className="btn-primary px-10 py-5 text-base rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
           >
             <span>Start Your Project</span>
             <ArrowUpRight
@@ -239,7 +270,7 @@ export function Hero() {
           </button>
           <button
             onClick={scrollToPortfolio}
-            className="btn-secondary group flex items-center gap-2"
+            className="btn-secondary px-10 py-5 text-base rounded-2xl transition-all duration-300 group flex items-center gap-2.5"
           >
             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
               <Play size={12} className="ml-0.5" fill="currentColor" />
