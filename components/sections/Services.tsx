@@ -150,7 +150,7 @@ function ServiceCard({
       <div>
         {/* Icon */}
         <div
-          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-7 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg]`}
+          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-7 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110`}
           style={{ boxShadow: `0 0 25px ${service.glowColor}` }}
         >
           {getServiceIcon(service.id)}
@@ -355,7 +355,7 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-[100px] relative z-10"
+          className="text-center mt-32 relative z-10"
         >
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
