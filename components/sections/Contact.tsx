@@ -76,7 +76,7 @@ export function Contact() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-16">
+        <div ref={ref} className="text-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -105,7 +105,7 @@ export function Contact() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start mt-8">
           {/* Left panel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

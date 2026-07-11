@@ -229,7 +229,7 @@ export function Hero() {
         >
           <button
             onClick={scrollToContact}
-            className="btn-primary text-base px-8 py-4 rounded-xl group"
+            className="btn-primary group"
           >
             <span>Start Your Project</span>
             <ArrowUpRight
@@ -239,7 +239,7 @@ export function Hero() {
           </button>
           <button
             onClick={scrollToPortfolio}
-            className="btn-secondary text-base px-8 py-4 rounded-xl group flex items-center gap-2"
+            className="btn-secondary group flex items-center gap-2"
           >
             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
               <Play size={12} className="ml-0.5" fill="currentColor" />

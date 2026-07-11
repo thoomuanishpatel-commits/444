@@ -79,7 +79,7 @@ export function WhyAarivon() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-16">
+        <div ref={ref} className="text-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
