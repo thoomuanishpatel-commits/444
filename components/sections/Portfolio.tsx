@@ -38,7 +38,7 @@ function PortfolioCard({
         <div
           className="relative overflow-hidden"
           style={{
-            height: item.featured ? "280px" : "220px",
+            height: "300px",
             background: `linear-gradient(135deg, ${item.color}15, rgba(0,0,0,0.5))`,
           }}
         >
@@ -128,18 +128,18 @@ function PortfolioCard({
         <div className="p-8">
           <div className="flex items-start justify-between gap-3 mb-4">
             <div>
-              <p className="text-xs text-white/30 font-semibold uppercase tracking-wider mb-1">
+              <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 inline-block mb-3">
                 {item.category}
-              </p>
-              <h3 className="font-bold text-white text-lg leading-snug">
+              </span>
+              <h3 className="font-bold text-white text-2xl group-hover:text-gradient transition-all duration-300 leading-snug tracking-tight">
                 {item.title}
               </h3>
             </div>
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 border border-white/[0.08] group-hover:border-white/20 transition-colors"
+              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-white/[0.08] group-hover:border-white/20 group-hover:bg-white/[0.04] transition-all duration-300"
               style={{ background: `${item.color}10` }}
             >
-              <ArrowUpRight size={15} style={{ color: item.color }} />
+              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: item.color }} />
             </div>
           </div>
 
@@ -257,7 +257,7 @@ export function Portfolio() {
         </motion.div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <AnimatePresence mode="popLayout">
             {filtered.map((item, i) => (
               <PortfolioCard key={item.id} item={item} index={i} />
