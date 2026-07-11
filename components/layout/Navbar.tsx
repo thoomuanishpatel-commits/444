@@ -58,8 +58,8 @@ export function Navbar() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.8 }}
         className={`fixed top-0 left-0 right-0 z-[900] transition-all duration-500 ${
           scrolled
-            ? "py-3 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-black/[0.08] dark:border-white/[0.08] shadow-glass"
-            : "py-5 bg-transparent"
+            ? "py-4 bg-white/20 dark:bg-black/40 backdrop-blur-md border-b border-black/[0.03] dark:border-white/[0.05] shadow-glass-premium"
+            : "py-6 bg-transparent"
         }`}
       >
         <div className="container-custom flex items-center justify-between">
@@ -84,7 +84,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) =>
               link.hasMega ? (
                 <div
@@ -104,10 +104,10 @@ export function Navbar() {
                     {megaOpen && (
                       <motion.div
                         ref={megaRef}
-                        initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                        initial={{ opacity: 0, y: 12, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.97 }}
-                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                        exit={{ opacity: 0, y: 12, scale: 0.98 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[640px] glass-strong rounded-2xl p-6 border border-white/10 shadow-premium"
                         onMouseEnter={handleMegaEnter}
                         onMouseLeave={handleMegaLeave}
@@ -194,7 +194,7 @@ export function Navbar() {
 
             <button
               onClick={() => scrollTo("#contact")}
-              className="btn-primary text-sm px-5 py-2.5"
+              className="btn-primary text-sm px-6 py-3 shadow-[0_0_20px_rgba(14,165,233,0.15)] hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-all duration-300"
             >
               <span>Start Your Project</span>
               <ArrowUpRight size={14} className="relative z-10" />
