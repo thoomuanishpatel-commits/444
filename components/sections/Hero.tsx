@@ -20,6 +20,29 @@ const floatingBadges = [
   { icon: "🔒", text: "99.9% Uptime", delay: 0.9, x: "-5%", y: "75%" },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 1.5,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1] as any,
+    },
+  },
+};
+
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { ref: inViewRef, inView } = useInView({ triggerOnce: true });
@@ -200,12 +223,15 @@ export function Hero() {
       ))}
 
       {/* ── Main Content ── */}
-      <div className="relative z-10 container-custom text-center flex flex-col items-center pt-48 pb-32">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 container-custom max-w-[1400px] text-center grid grid-cols-1 justify-items-center pt-40 pb-32"
+      >
         {/* Top badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ delay: 1.9, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          variants={itemVariants}
           className="section-label gap-2 mb-8"
         >
           <Sparkles size={12} />
@@ -214,37 +240,31 @@ export function Hero() {
         </motion.div>
 
         {/* Main Headline */}
-        <div className="overflow-hidden mb-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.0, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-[84px] font-black text-white max-w-5xl mx-auto leading-[1.05] tracking-tighter"
-          >
-            We Build{" "}
-            <span className="text-gradient-animated">Digital Empires</span>
-            <br />
-            That Dominate{" "}
-            <span className="relative inline-block">
-              The Future
-              <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
-                style={{
-                  background: "linear-gradient(90deg, #0ea5e9, #7c3aed, #06b6d4)",
-                }}
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 2.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </span>
-          </motion.h1>
-        </div>
+        <motion.h1
+          variants={itemVariants}
+          className="text-5xl md:text-7xl lg:text-[84px] font-black text-white max-w-5xl mx-auto leading-[1.05] tracking-tighter mb-8"
+        >
+          We Build{" "}
+          <span className="text-gradient-animated">Digital Empires</span>
+          <br />
+          That Dominate{" "}
+          <span className="relative inline-block">
+            The Future
+            <motion.span
+              className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
+              style={{
+                background: "linear-gradient(90deg, #0ea5e9, #7c3aed, #06b6d4)",
+              }}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 2.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            />
+          </span>
+        </motion.h1>
 
         {/* Subheadline */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          variants={itemVariants}
           className="body-lg max-w-[700px] mb-16 leading-[1.8] text-white/55"
         >
           AARIVON is a premium digital agency crafting world-class websites, mobile apps,
@@ -253,14 +273,12 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center gap-6 mb-20"
+          variants={itemVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-20"
         >
           <button
             onClick={scrollToContact}
-            className="btn-primary px-10 py-5 text-base rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
+            className="btn-primary w-full px-10 py-5 text-base rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
           >
             <span>Start Your Project</span>
             <ArrowUpRight
@@ -270,7 +288,7 @@ export function Hero() {
           </button>
           <button
             onClick={scrollToPortfolio}
-            className="btn-secondary px-10 py-5 text-base rounded-2xl transition-all duration-300 group flex items-center gap-2.5"
+            className="btn-secondary w-full px-10 py-5 text-base rounded-2xl transition-all duration-300 group flex items-center justify-center gap-2.5"
           >
             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
               <Play size={12} className="ml-0.5" fill="currentColor" />
@@ -282,9 +300,7 @@ export function Hero() {
         {/* Stats */}
         <motion.div
           ref={inViewRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          variants={itemVariants}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-white/[0.08] w-full max-w-3xl mb-8"
         >
           {stats.map((stat, i) => (
@@ -312,9 +328,7 @@ export function Hero() {
 
         {/* Tech logos row */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.7, duration: 0.8 }}
+          variants={itemVariants}
           className="flex items-center gap-3 flex-wrap justify-center"
         >
           <span className="text-xs text-white/25 mr-1 font-medium">Built with</span>
@@ -329,7 +343,7 @@ export function Hero() {
             )
           )}
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* ── Scroll Indicator ── */}
       <motion.button
