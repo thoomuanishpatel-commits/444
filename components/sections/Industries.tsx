@@ -9,7 +9,7 @@ export function Industries() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="industries" className="section-padding relative overflow-hidden">
+    <section id="industries" className="section-padding relative overflow-hidden bg-zinc-950/30 border-y border-white/[0.02]">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"

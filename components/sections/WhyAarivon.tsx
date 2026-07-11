@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import CountUp from "react-countup";
+import { SmoothCounter } from "@/components/ui/SmoothCounter";
 import { Shield, Zap, Users, Award, TrendingUp, Clock, Star, CheckCircle } from "lucide-react";
 
 const reasons = [
@@ -72,7 +72,7 @@ export function WhyAarivon() {
   const { ref: statsRef, inView: statsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="why-aarivon" className="section-padding relative overflow-hidden">
+    <section id="why-aarivon" className="section-padding relative overflow-hidden bg-zinc-950/30 border-y border-white/[0.02]">
       {/* Background */}
       <div className="absolute inset-0 hero-glow pointer-events-none" />
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
@@ -163,17 +163,7 @@ export function WhyAarivon() {
                       className="text-2xl font-black tracking-tight"
                       style={{ color: reason.color }}
                     >
-                      {statsInView ? (
-                        <CountUp
-                          start={0}
-                          end={reason.stat.value}
-                          duration={2}
-                          delay={i * 0.15}
-                          suffix={reason.stat.suffix}
-                        />
-                      ) : (
-                        `0${reason.stat.suffix}`
-                      )}
+                      <SmoothCounter value={reason.stat.value} suffix={reason.stat.suffix} />
                     </span>
                     <span className="text-xs text-white/40 font-medium">{reason.stat.label}</span>
                   </div>

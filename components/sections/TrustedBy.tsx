@@ -37,9 +37,9 @@ export function TrustedBy() {
   return (
     <section id="trusted-by" className="py-16 relative overflow-hidden border-y border-white/[0.05]">
       {/* Subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-white/[0.01] to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-white/[0.01] to-black pointer-events-none z-10" />
 
-      <div className="container-custom mb-8" ref={ref}>
+      <div className="container-custom mb-10" ref={ref}>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,42 +50,20 @@ export function TrustedBy() {
         </motion.p>
       </div>
 
-      {/* Infinite marquee row 1 */}
-      <div className="relative flex overflow-hidden gap-4">
+      {/* Infinite marquee */}
+      <div className="relative flex overflow-hidden">
         {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+        <div className="absolute left-0 top-0 bottom-0 w-32 z-20 pointer-events-none"
           style={{ background: "linear-gradient(90deg, #000000 0%, transparent 100%)" }} />
         {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+        <div className="absolute right-0 top-0 bottom-0 w-32 z-20 pointer-events-none"
           style={{ background: "linear-gradient(-90deg, #000000 0%, transparent 100%)" }} />
 
-        <motion.div
-          className="flex gap-4"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-        >
-          {[...logos, ...logos].map((logo, i) => (
+        <div className="flex gap-4 animate-marquee hover:[animation-play-state:paused] cursor-pointer">
+          {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
             <LogoItem key={i} {...logo} />
           ))}
-        </motion.div>
-      </div>
-
-      {/* Infinite marquee row 2 (reverse) */}
-      <div className="relative flex overflow-hidden gap-4 mt-4">
-        <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(90deg, #000000 0%, transparent 100%)" }} />
-        <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(-90deg, #000000 0%, transparent 100%)" }} />
-
-        <motion.div
-          className="flex gap-4"
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{ duration: 35, ease: "linear", repeat: Infinity }}
-        >
-          {[...logos.slice(4), ...logos, ...logos.slice(0, 4)].map((logo, i) => (
-            <LogoItem key={i} {...logo} />
-          ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

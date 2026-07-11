@@ -14,7 +14,7 @@ export function FAQ() {
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   return (
-    <section id="faq" className="section-padding relative overflow-hidden">
+    <section id="faq" className="section-padding relative overflow-hidden bg-zinc-950/30 border-y border-white/[0.02]">
       {/* Background */}
       <div className="absolute inset-0 grid-dots opacity-15 pointer-events-none" />
 
@@ -83,9 +83,11 @@ export function FAQ() {
                   className="faq-item"
                 >
                   <button
+                    id={`faq-trigger-${faq.id}`}
                     onClick={() => toggle(faq.id)}
-                    className="faq-trigger group"
+                    className="faq-trigger group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/50 focus-visible:bg-white/[0.02] px-3 rounded-lg transition-all duration-200"
                     aria-expanded={open === faq.id}
+                    aria-controls={`faq-panel-${faq.id}`}
                   >
                     <span className={`flex-1 pr-4 text-left transition-colors duration-200 ${open === faq.id ? "text-white" : "text-white/70 group-hover:text-white"}`}>
                       {faq.question}
@@ -108,6 +110,9 @@ export function FAQ() {
                   <AnimatePresence initial={false}>
                     {open === faq.id && (
                       <motion.div
+                        id={`faq-panel-${faq.id}`}
+                        role="region"
+                        aria-labelledby={`faq-trigger-${faq.id}`}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

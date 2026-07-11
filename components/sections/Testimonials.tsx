@@ -65,8 +65,18 @@ export function Testimonials() {
           className="mb-12"
         >
           <div className="max-w-3xl mx-auto">
-            <div
-              className="glass-strong rounded-3xl p-8 border border-white/10 relative overflow-hidden"
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(e, info) => {
+                if (info.offset.x < -60) {
+                  next();
+                } else if (info.offset.x > 60) {
+                  prev();
+                }
+              }}
+              className="glass-strong rounded-3xl p-8 border border-white/10 relative overflow-hidden cursor-grab active:cursor-grabbing select-none"
               style={{
                 boxShadow: "0 32px 64px rgba(0,0,0,0.4), 0 0 60px rgba(124,58,237,0.06)",
               }}
@@ -134,7 +144,7 @@ export function Testimonials() {
                   </div>
                 </motion.div>
               </AnimatePresence>
-            </div>
+            </motion.div>
           </div>
 
           {/* Navigation */}

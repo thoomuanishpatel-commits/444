@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Play, ChevronDown, Sparkles, Zap, Globe } from "lucide-react";
-import CountUp from "react-countup";
+import { SmoothCounter } from "@/components/ui/SmoothCounter";
 import { useInView } from "react-intersection-observer";
 
 const stats = [
@@ -235,7 +235,7 @@ export function Hero() {
           className="section-label gap-2 mb-8"
         >
           <Sparkles size={12} />
-          <span>World-Class Digital Agency — Trusted by 500+ Clients</span>
+          <span>World-Class Digital Agency — Clutch 4.9/5 ★ (280+ Reviews)</span>
           <Sparkles size={12} />
         </motion.div>
 
@@ -306,18 +306,7 @@ export function Hero() {
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center gap-2">
               <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                {inView ? (
-                  <CountUp
-                    start={0}
-                    end={stat.value}
-                    duration={2.5}
-                    delay={0.2 + i * 0.1}
-                    suffix={stat.suffix}
-                    useEasing
-                  />
-                ) : (
-                  <span>0{stat.suffix}</span>
-                )}
+                <SmoothCounter value={stat.value} suffix={stat.suffix} />
               </div>
               <div className="text-xs text-white/40 font-semibold text-center uppercase tracking-wider">
                 {stat.label}

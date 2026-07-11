@@ -35,7 +35,7 @@ export function CursorGlow() {
       cursor.style.transform = `translate(${delayed.current.x - 20}px, ${delayed.current.y - 20}px) scale(1)`;
     };
 
-    // Hoverable elements
+    // Hoverable elements with event delegation
     const handleHoverStart = () => {
       cursor.style.width = "60px";
       cursor.style.height = "60px";
@@ -49,11 +49,14 @@ export function CursorGlow() {
       cursor.style.borderColor = "rgba(14, 165, 233, 0.4)";
     };
 
-    const hoverables = document.querySelectorAll("a, button, [data-cursor-hover]");
-    hoverables.forEach((el) => {
-      el.addEventListener("mouseenter", handleHoverStart);
-      el.addEventListener("mouseleave", handleHoverEnd);
-    });
+    const onMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest("a, button, [data-cursor-hover]")) {
+        handleHoverStart();
+      } else {
+        handleHoverEnd();
+      }
+    };
 
     const loop = () => {
       delayed.current.x += (pos.current.x - delayed.current.x) * 0.12;
@@ -63,6 +66,7 @@ export function CursorGlow() {
     };
 
     document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseover", onMouseOver);
     document.addEventListener("mouseenter", onEnter);
     document.addEventListener("mouseleave", onLeave);
     document.addEventListener("mousedown", onDown);
@@ -71,15 +75,12 @@ export function CursorGlow() {
 
     return () => {
       document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onMouseOver);
       document.removeEventListener("mouseenter", onEnter);
       document.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("mousedown", onDown);
       document.removeEventListener("mouseup", onUp);
       cancelAnimationFrame(rafRef.current);
-      hoverables.forEach((el) => {
-        el.removeEventListener("mouseenter", handleHoverStart);
-        el.removeEventListener("mouseleave", handleHoverEnd);
-      });
     };
   }, []);
 

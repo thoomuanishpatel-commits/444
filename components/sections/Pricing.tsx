@@ -26,15 +26,23 @@ function PricingCard({
       className="relative"
     >
       <div
-        className={`pricing-card relative h-full flex flex-col ${plan.popular ? "featured" : ""}`}
+        className={`pricing-card relative h-full flex flex-col transition-all duration-500 ${
+          plan.popular 
+            ? "featured lg:scale-[1.04] border-brand-blue/40 shadow-[0_0_35px_rgba(14,165,233,0.18)] ring-1 ring-brand-blue/30" 
+            : ""
+        }`}
       >
         {/* Popular badge */}
         {plan.popular && (
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-glow-blue">
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
+            <motion.div
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-glow-blue border border-white/10"
+            >
               <Star size={10} fill="currentColor" />
               Most Popular
-            </div>
+            </motion.div>
           </div>
         )}
 
@@ -129,7 +137,7 @@ export function Pricing() {
   const plans = activeTab === "website" ? websitePricing : appPricing;
 
   return (
-    <section id="pricing" className="section-padding relative overflow-hidden">
+    <section id="pricing" className="section-padding relative overflow-hidden bg-zinc-950/30 border-y border-white/[0.02]">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -196,8 +204,18 @@ export function Pricing() {
         <div className="h-10 lg:h-16 pointer-events-none" />
 
         {/* Pricing Grid */}
-        <div
-          className={`grid gap-8 ${
+        <motion.div
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
+          onDragEnd={(e, info) => {
+            if (info.offset.x < -60 && activeTab === "website") {
+              setActiveTab("app");
+            } else if (info.offset.x > 60 && activeTab === "app") {
+              setActiveTab("website");
+            }
+          }}
+          className={`grid gap-8 cursor-grab active:cursor-grabbing select-none ${
             activeTab === "website"
               ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
               : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto"
@@ -206,7 +224,7 @@ export function Pricing() {
           {plans.map((plan, index) => (
             <PricingCard key={plan.id} plan={plan} index={index} />
           ))}
-        </div>
+        </motion.div>
 
         {/* Custom banner */}
         <motion.div

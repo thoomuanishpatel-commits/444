@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ArrowUpRight, Mail, Phone, MapPin, MessageCircle, Send, Check } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin, MessageCircle, Send, Check, ChevronDown } from "lucide-react";
 import toast from "react-hot-toast";
 
 const contactInfo = [
@@ -39,9 +39,24 @@ export function Contact() {
     budget: "",
     message: "",
   });
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const isEmailValid = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+  const isNameValid = (name: string) => name.trim().length >= 3;
+  const isMessageValid = (message: string) => message.trim().length >= 10;
+
+  const handleBlur = (field: "name" | "email" | "message") => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -51,8 +66,9 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill in required fields");
+    if (!isNameValid(form.name) || !isEmailValid(form.email) || !isMessageValid(form.message)) {
+      setTouched({ name: true, email: true, message: true });
+      toast.error("Please fill in required fields correctly");
       return;
     }
     setSubmitting(true);
@@ -236,9 +252,16 @@ export function Contact() {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
+                      onBlur={() => handleBlur("name")}
                       placeholder="John Smith"
                       required
-                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-5 py-4 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue/40 focus:bg-white/[0.05] transition-all duration-200"
+                      className={`w-full bg-white/[0.03] border rounded-xl px-5 py-4 text-sm text-white placeholder-white/20 focus:outline-none focus:bg-white/[0.05] transition-all duration-200 ${
+                        touched.name
+                          ? isNameValid(form.name)
+                            ? "border-emerald-500/30 focus:border-emerald-500/50"
+                            : "border-red-500/30 focus:border-red-500/50"
+                          : "border-white/[0.08] focus:border-brand-blue/40"
+                      }`}
                     />
                   </div>
                   {/* Email */}
@@ -251,9 +274,16 @@ export function Contact() {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
+                      onBlur={() => handleBlur("email")}
                       placeholder="john@company.com"
                       required
-                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-5 py-4 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue/40 focus:bg-white/[0.05] transition-all duration-200"
+                      className={`w-full bg-white/[0.03] border rounded-xl px-5 py-4 text-sm text-white placeholder-white/20 focus:outline-none focus:bg-white/[0.05] transition-all duration-200 ${
+                        touched.email
+                          ? isEmailValid(form.email)
+                            ? "border-emerald-500/30 focus:border-emerald-500/50"
+                            : "border-red-500/30 focus:border-red-500/50"
+                          : "border-white/[0.08] focus:border-brand-blue/40"
+                      }`}
                     />
                   </div>
                   {/* Company */}
@@ -271,26 +301,31 @@ export function Contact() {
                     />
                   </div>
                   {/* Service */}
-                  <div>
+                  <div className="relative">
                     <label className="text-xs font-semibold text-white/40 mb-2 block uppercase tracking-wider">
                       Service Needed
                     </label>
-                    <select
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                      className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-5 py-4 text-sm text-white/60 focus:outline-none focus:border-brand-blue/40 focus:bg-white/[0.05] transition-all duration-200 appearance-none"
-                    >
-                      <option value="" className="bg-gray-900">Select a service</option>
-                      <option value="website" className="bg-gray-900">Website Development</option>
-                      <option value="app" className="bg-gray-900">Mobile App</option>
-                      <option value="ui-ux" className="bg-gray-900">UI/UX Design</option>
-                      <option value="saas" className="bg-gray-900">SaaS Development</option>
-                      <option value="ai" className="bg-gray-900">AI Solutions</option>
-                      <option value="ecommerce" className="bg-gray-900">E-Commerce</option>
-                      <option value="branding" className="bg-gray-900">Branding</option>
-                      <option value="other" className="bg-gray-900">Other</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        name="service"
+                        value={form.service}
+                        onChange={handleChange}
+                        className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-5 pl-5 pr-10 py-4 text-sm text-white/60 focus:outline-none focus:border-brand-blue/40 focus:bg-white/[0.05] transition-all duration-200 appearance-none cursor-pointer"
+                      >
+                        <option value="" className="bg-gray-900">Select a service</option>
+                        <option value="website" className="bg-gray-900">Website Development</option>
+                        <option value="app" className="bg-gray-900">Mobile App</option>
+                        <option value="ui-ux" className="bg-gray-900">UI/UX Design</option>
+                        <option value="saas" className="bg-gray-900">SaaS Development</option>
+                        <option value="ai" className="bg-gray-900">AI Solutions</option>
+                        <option value="ecommerce" className="bg-gray-900">E-Commerce</option>
+                        <option value="branding" className="bg-gray-900">Branding</option>
+                        <option value="other" className="bg-gray-900">Other</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/45">
+                        <ChevronDown size={14} />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -306,7 +341,7 @@ export function Contact() {
                           key={b}
                           type="button"
                           onClick={() => setForm((p) => ({ ...p, budget: b }))}
-                          className={`px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                          className={`px-4 py-2.5 rounded-xl text-xs font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/50 ${
                             form.budget === b
                               ? "bg-brand-blue/20 border border-brand-blue/40 text-brand-blue"
                               : "bg-white/[0.02] border border-white/[0.06] text-white/40 hover:text-white/60"
@@ -328,10 +363,17 @@ export function Contact() {
                     name="message"
                     value={form.message}
                     onChange={handleChange}
+                    onBlur={() => handleBlur("message")}
                     placeholder="Tell us about your project — what you want to build, your goals, timeline, and any specific requirements..."
                     required
                     rows={5}
-                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-5 py-4 text-sm text-white placeholder-white/20 focus:outline-none focus:border-brand-blue/40 focus:bg-white/[0.05] transition-all duration-200 resize-none"
+                    className={`w-full bg-white/[0.03] border rounded-xl px-5 py-4 text-sm text-white placeholder-white/20 focus:outline-none focus:bg-white/[0.05] transition-all duration-200 resize-none ${
+                      touched.message
+                        ? isMessageValid(form.message)
+                          ? "border-emerald-500/30 focus:border-emerald-500/50"
+                          : "border-red-500/30 focus:border-red-500/50"
+                        : "border-white/[0.08] focus:border-brand-blue/40"
+                    }`}
                   />
                 </div>
 

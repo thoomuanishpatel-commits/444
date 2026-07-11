@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { portfolioItems, portfolioCategories } from "@/data/portfolio";
 import { ArrowUpRight, ExternalLink, TrendingUp } from "lucide-react";
@@ -13,7 +13,27 @@ function PortfolioCard({
   item: (typeof portfolioItems)[0];
   index: number;
 }) {
+  const cardRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 150, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 150, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+    setHovered(false);
+  };
 
   return (
     <motion.div
@@ -23,16 +43,20 @@ function PortfolioCard({
       transition={{ delay: index * 0.07, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="group relative"
     >
-      <div
-        className="relative rounded-3xl overflow-hidden border border-white/[0.06] transition-all duration-500"
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
         onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseLeave={handleMouseLeave}
         style={{
-          background: "rgba(255,255,255,0.02)",
-          boxShadow: hovered ? `0 24px 48px rgba(0,0,0,0.5), 0 0 40px ${item.color}15` : "none",
-          transform: hovered ? "translateY(-6px)" : "translateY(0)",
-          transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+          background: hovered ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)",
+          borderColor: hovered ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.06)",
+          boxShadow: hovered ? `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 45px ${item.color}20` : "none",
         }}
+        className="relative rounded-3xl overflow-hidden border transition-colors duration-300"
       >
         {/* Mock browser frame */}
         <div
@@ -178,7 +202,7 @@ function PortfolioCard({
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

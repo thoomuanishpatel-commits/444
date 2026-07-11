@@ -120,30 +120,56 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "AARIVON",
-              url: "https://aarivon.com",
-              logo: "https://aarivon.com/logo.png",
-              description:
-                "Premium digital agency specializing in web development, mobile apps, UI/UX design, SaaS, AI solutions and business automation.",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "IN",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                email: "hello@aarivon.com",
-              },
-              sameAs: [
-                "https://www.linkedin.com/company/aarivon",
-                "https://twitter.com/aarivon",
-                "https://instagram.com/aarivon",
-              ],
-              offers: {
-                "@type": "Offer",
-                description: "Premium digital agency services",
-              },
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://aarivon.com/#organization",
+                  "name": "AARIVON",
+                  "url": "https://aarivon.com",
+                  "logo": "https://aarivon.com/logo.png",
+                  "description": "Premium digital agency specializing in web development, mobile apps, UI/UX design, SaaS, AI solutions and business automation.",
+                  "sameAs": [
+                    "https://www.linkedin.com/company/aarivon",
+                    "https://twitter.com/aarivon",
+                    "https://instagram.com/aarivon"
+                  ]
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "name": "AARIVON",
+                  "image": "https://aarivon.com/og-image.png",
+                  "@id": "https://aarivon.com/#localbusiness",
+                  "url": "https://aarivon.com",
+                  "telephone": "+919876543210",
+                  "priceRange": "$$$",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "India · Global Services",
+                    "addressLocality": "Mumbai",
+                    "addressRegion": "Maharashtra",
+                    "postalCode": "400001",
+                    "addressCountry": "IN"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "19.0760",
+                    "longitude": "72.8777"
+                  },
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  }
+                }
+              ]
             }),
           }}
         />
