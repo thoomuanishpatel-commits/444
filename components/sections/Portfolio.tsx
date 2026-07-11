@@ -259,9 +259,8 @@ export function Portfolio() {
           ))}
         </motion.div>
 
-        {/* Portfolio Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence>
             {filtered.map((item, i) => (
               <PortfolioCard key={item.id} item={item} index={i} />
             ))}

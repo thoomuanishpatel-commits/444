@@ -130,11 +130,14 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Spacer to guarantee premium spacing between CTA and footer links */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* Main footer */}
         <div className="container-custom py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12">
             {/* Brand column */}
-            <div className="lg:col-span-2">
+            <div className="md:col-span-2 lg:col-span-2">
               {/* Logo */}
               <div className="flex items-center gap-3 mb-5">
                 <div
@@ -220,7 +223,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/[0.05]">
+        <div className="border-t border-white/[0.05] mt-12 lg:mt-16">
           <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/25 text-center">
               © 2026 AARIVON. All rights reserved. Built with ❤️ by AARIVON.

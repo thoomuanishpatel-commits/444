@@ -50,6 +50,9 @@ export function Industries() {
           </motion.p>
         </div>
 
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* Industries Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {industries.map((industry, i) => (
@@ -114,13 +117,16 @@ export function Industries() {
           ))}
         </div>
 
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-24 relative overflow-hidden rounded-3xl p-10 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl p-10 md:p-16 text-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(124,58,237,0.08) 50%, rgba(6,182,212,0.05) 100%)",
