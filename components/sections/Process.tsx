@@ -118,6 +118,9 @@ export function Process() {
           </motion.p>
         </div>
 
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* Timeline */}
         <div className="relative" ref={containerRef}>
           {/* Connecting line (base track) */}

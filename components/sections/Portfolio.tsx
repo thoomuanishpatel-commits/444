@@ -234,6 +234,9 @@ export function Portfolio() {
           </motion.p>
         </div>
 
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

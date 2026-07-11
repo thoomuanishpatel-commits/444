@@ -109,6 +109,9 @@ export function WhyAarivon() {
           </motion.p>
         </div>
 
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* Reasons grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {reasons.map((reason, i) => {

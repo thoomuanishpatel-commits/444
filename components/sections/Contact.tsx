@@ -105,7 +105,10 @@ export function Contact() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start mt-8">
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
           {/* Left panel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

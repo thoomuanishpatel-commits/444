@@ -192,6 +192,9 @@ export function Pricing() {
           </motion.div>
         </div>
 
+        {/* Spacer to guarantee premium spacing */}
+        <div className="h-10 lg:h-16 pointer-events-none" />
+
         {/* Pricing Grid */}
         <div
           className={`grid gap-8 ${
