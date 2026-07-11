@@ -210,49 +210,115 @@ a, button, [role="button"] {
     z-index: 100;
   }
 
+  /* ─── Section Padding Scale ─────────────────
+     Intentional vertical rhythm — NOT uniform.
+     dense sections (Services, Pricing, Process) 
+     use section-padding (standard), 
+     hero gets section-padding-hero (maximum air),
+     marquee strips get section-padding-compact.
+  ─────────────────────────────────────────── */
+
   .section-padding {
-    padding-top: 80px !important;
-    padding-bottom: 80px !important;
-    box-sizing: border-box !important;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    box-sizing: border-box;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .section-padding {
-      padding-top: 110px !important;
-      padding-bottom: 110px !important;
+      padding-top: 96px;
+      padding-bottom: 96px;
     }
   }
 
   @media (min-width: 1024px) {
     .section-padding {
-      padding-top: 150px !important;
-      padding-bottom: 150px !important;
+      padding-top: 128px;
+      padding-bottom: 128px;
     }
   }
 
+  /* Hero — maximum breathing room */
+  .section-padding-hero {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    .section-padding-hero {
+      padding-top: 140px;
+      padding-bottom: 120px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding-hero {
+      padding-top: 160px;
+      padding-bottom: 140px;
+    }
+  }
+
+  /* Compact — logo strips, trust bars */
+  .section-padding-compact {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    .section-padding-compact {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding-compact {
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+  }
+
+  /* Alternate section background — creates clear visual rhythm */
+  .alt-bg {
+    background: rgba(255, 255, 255, 0.015);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  /* ─── Container ─── */
   .container-custom {
-    width: 100% !important;
-    max-width: 1280px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;   /* 4px wider than before — thumb safe at 375px */
+    padding-right: 20px;
+    box-sizing: border-box;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .container-custom {
-      padding-left: 24px !important;
-      padding-right: 24px !important;
+      padding-left: 28px;
+      padding-right: 28px;
     }
   }
 
   @media (min-width: 1024px) {
     .container-custom {
-      padding-left: 32px !important;
-      padding-right: 32px !important;
+      padding-left: 40px;
+      padding-right: 40px;
     }
   }
+
+  @media (min-width: 1280px) {
+    .container-custom {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
 
   .heading-xl {
     font-size: clamp(3rem, 7vw, 6rem);
@@ -491,11 +557,17 @@ a, button, [role="button"] {
 .pricing-card {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 2rem;
-  padding: 2.5rem;
+  border-radius: 1.5rem;
+  padding: 1.25rem;       /* 20px — mobile */
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+}
+@media (min-width: 640px) {
+  .pricing-card { padding: 1.75rem; border-radius: 2rem; }  /* 28px */
+}
+@media (min-width: 1024px) {
+  .pricing-card { padding: 2.5rem; }  /* 40px */
 }
 .pricing-card:hover {
   border-color: rgba(14, 165, 233, 0.2);
@@ -517,12 +589,19 @@ a, button, [role="button"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.75rem 0;
-  font-size: 1.0625rem;
+  padding: 1.25rem 0;          /* 20px — mobile, meets 44px+ tap target with content */
+  min-height: 64px;            /* guaranteed thumb-tap zone */
+  font-size: 0.9375rem;
   font-weight: 500;
   text-align: left;
   color: rgba(255,255,255,0.9);
   transition: color 0.2s ease;
+}
+@media (min-width: 640px) {
+  .faq-trigger { padding: 1.5rem 0; font-size: 1rem; min-height: unset; }
+}
+@media (min-width: 1024px) {
+  .faq-trigger { padding: 1.75rem 0; font-size: 1.0625rem; }
 }
 .faq-trigger:hover {
   color: #0ea5e9;
@@ -538,9 +617,15 @@ a, button, [role="button"] {
 .testimonial-card {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 2rem;
-  padding: 2.5rem;
+  border-radius: 1.5rem;
+  padding: 1.25rem;       /* 20px — mobile */
   transition: all 0.3s ease;
+}
+@media (min-width: 640px) {
+  .testimonial-card { padding: 1.75rem; border-radius: 2rem; }  /* 28px */
+}
+@media (min-width: 1024px) {
+  .testimonial-card { padding: 2.5rem; }  /* 40px */
 }
 .testimonial-card:hover {
   border-color: rgba(14,165,233,0.15);

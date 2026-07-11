@@ -135,7 +135,7 @@ function ServiceCard({
           ? `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 35px ${service.glowColor}25`
           : "none",
       }}
-      className="perspective-card group relative rounded-[24px] p-8 h-full min-h-[420px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
+      className="perspective-card group relative rounded-[20px] sm:rounded-[24px] p-5 sm:p-6 lg:p-8 h-full min-h-[300px] sm:min-h-[360px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
       onClick={onOpen}
     >
       {/* Hover glow */}
@@ -277,7 +277,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="py-20 md:py-32 lg:pt-[160px] lg:pb-[180px] relative overflow-hidden"
+      className="section-padding relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -301,14 +301,14 @@ export function Services() {
         />
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container-custom relative z-10">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex section-label mb-6"
+            className="inline-flex section-label mb-4"
           >
             What We Do
           </motion.div>
@@ -337,7 +337,7 @@ export function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-9 max-w-[1400px] mx-auto relative z-10"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-[1400px] mx-auto relative z-10"
         >
           {services.map((service, index) => (
             <ServiceCard
@@ -355,7 +355,7 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-32 relative z-10"
+          className="text-center mt-16 sm:mt-20 lg:mt-28 relative z-10"
         >
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}

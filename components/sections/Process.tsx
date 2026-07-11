@@ -89,7 +89,7 @@ export function Process() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -118,8 +118,8 @@ export function Process() {
           </motion.p>
         </div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
 
         {/* Timeline */}
         <div className="relative" ref={containerRef}>
@@ -132,7 +132,7 @@ export function Process() {
             className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#0ea5e9] via-[#7c3aed] to-[#ec4899] hidden md:block transform -translate-x-1/2"
           />
 
-          <div className="flex flex-col gap-8 lg:gap-10">
+          <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10">
             {steps.map((step, i) => {
               const isEven = i % 2 === 0;
               return (
@@ -162,7 +162,7 @@ export function Process() {
 
                   {/* Left content */}
                   <div className={`${isEven ? "md:text-right md:pr-16" : "md:col-start-2 md:pl-16"}`}>
-                    <div className="glass rounded-3xl p-8 border border-white/[0.06] hover:border-white/12 hover:transform hover:-translate-y-1 transition-all duration-300 group relative shadow-premium">
+                    <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/[0.06] hover:border-white/12 hover:transform hover:-translate-y-1 transition-all duration-300 group relative shadow-premium">
                       {/* Glow */}
                       <div
                         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -228,7 +228,7 @@ export function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-24"
+          className="text-center mt-16 sm:mt-20 lg:mt-24"
         >
           <p className="text-white/40 text-sm mb-4 font-medium">
             Ready to start? Your project kicks off within 48 hours.

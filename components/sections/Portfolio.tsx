@@ -149,7 +149,7 @@ function PortfolioCard({
         </div>
 
         {/* Content */}
-        <div className="p-8">
+        <div className="p-5 sm:p-6 lg:p-8">
           <div className="flex items-start justify-between gap-3 mb-4">
             <div>
               <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 inline-block mb-3">
@@ -229,7 +229,7 @@ export function Portfolio() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -258,15 +258,15 @@ export function Portfolio() {
           </motion.p>
         </div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
 
         {/* Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-3 mb-14"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12 lg:mb-14"
         >
           {portfolioCategories.map((cat) => (
             <button
@@ -283,7 +283,7 @@ export function Portfolio() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           <AnimatePresence>
             {filtered.map((item, i) => (
               <PortfolioCard key={item.id} item={item} index={i} />
@@ -297,9 +297,9 @@ export function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-24"
+          className="text-center mt-16 sm:mt-20 lg:mt-24"
         >
-          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-6 rounded-3xl p-8 border border-white/10 max-w-2xl mx-auto">
+          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/10 max-w-2xl mx-auto">
             <div className="text-left flex-1">
               <p className="text-white font-bold text-lg mb-1">Want results like these?</p>
               <p className="text-white/40 text-sm">Let&apos;s build your success story together</p>

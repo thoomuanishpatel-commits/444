@@ -28,7 +28,7 @@ export function Testimonials() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -179,11 +179,11 @@ export function Testimonials() {
           </div>
         </motion.div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {testimonials.map((t, i) => (
             <motion.button
               key={t.id}
@@ -225,7 +225,7 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-24"
+          className="text-center mt-12 sm:mt-16 lg:mt-20"
         >
           <div className="inline-flex items-center gap-3 glass px-6 py-3.5 rounded-2xl border border-white/[0.08]">
             <div className="flex gap-1">

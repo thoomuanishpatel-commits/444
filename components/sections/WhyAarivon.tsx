@@ -79,7 +79,7 @@ export function WhyAarivon() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -109,11 +109,11 @@ export function WhyAarivon() {
           </motion.p>
         </div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-8 sm:h-10 lg:h-12 pointer-events-none" />
 
         {/* Reasons grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-16 sm:mb-20 lg:mb-24">
           {reasons.map((reason, i) => {
             const Icon = reason.icon;
             return (
@@ -125,7 +125,7 @@ export function WhyAarivon() {
                 transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="relative group"
               >
-                <div className="glass rounded-3xl p-8 h-full border border-white/[0.06] hover:border-white/10 transition-all duration-300 hover:transform hover:-translate-y-1">
+                <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 h-full border border-white/[0.06] hover:border-white/10 transition-all duration-300 hover:transform hover:-translate-y-1">
                   {/* Glow */}
                   <div
                     className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -174,7 +174,7 @@ export function WhyAarivon() {
         </div>
 
         {/* Comparison Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* AARIVON column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -183,7 +183,7 @@ export function WhyAarivon() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="gradient-border lg:col-span-6"
           >
-            <div className="glass-strong rounded-3xl p-8">
+            <div className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8">
               <div className="flex items-center gap-4 mb-8">
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-white text-base"

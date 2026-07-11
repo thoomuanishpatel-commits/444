@@ -149,7 +149,7 @@ export function Pricing() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -200,8 +200,8 @@ export function Pricing() {
           </motion.div>
         </div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
 
         {/* Pricing Grid */}
         <motion.div
@@ -215,7 +215,7 @@ export function Pricing() {
               setActiveTab("website");
             }
           }}
-          className={`grid gap-8 cursor-grab active:cursor-grabbing select-none ${
+          className={`grid gap-5 sm:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing select-none ${
             activeTab === "website"
               ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
               : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto"
@@ -232,9 +232,9 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-24 text-center"
+          className="mt-16 sm:mt-20 lg:mt-24 text-center"
         >
-          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-6 rounded-3xl p-8 border border-white/[0.08] max-w-3xl mx-auto">
+          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/[0.08] max-w-3xl mx-auto">
             <div className="text-3xl">💬</div>
             <div className="flex-1 text-left">
               <p className="font-bold text-white text-base">Need a custom solution?</p>

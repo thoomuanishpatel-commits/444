@@ -21,7 +21,7 @@ export function Industries() {
 
       <div className="container-custom">
         {/* Header */}
-        <div ref={ref} className="text-center mb-24">
+        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,11 +50,11 @@ export function Industries() {
           </motion.p>
         </div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-6">
           {industries.map((industry, i) => (
             <motion.div
               key={industry.id}
@@ -70,7 +70,7 @@ export function Industries() {
               className="group relative"
             >
               <div
-                className="relative rounded-3xl p-8 flex flex-col items-center text-center gap-4 cursor-pointer transition-all duration-300 h-full"
+                className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 flex flex-col items-center text-center gap-3 cursor-pointer transition-all duration-300 h-full"
                 style={{
                   background: "rgba(255,255,255,0.02)",
                   border: "1px solid rgba(255,255,255,0.06)",
@@ -117,8 +117,8 @@ export function Industries() {
           ))}
         </div>
 
-        {/* Spacer to guarantee premium spacing */}
-        <div className="h-10 lg:h-16 pointer-events-none" />
+        {/* Spacer */}
+        <div className="h-8 sm:h-10 lg:h-12 pointer-events-none" />
 
         {/* CTA Banner */}
         <motion.div
@@ -126,7 +126,7 @@ export function Industries() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-3xl p-10 md:p-16 text-center"
+          className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-8 sm:p-10 lg:p-14 text-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(124,58,237,0.08) 50%, rgba(6,182,212,0.05) 100%)",

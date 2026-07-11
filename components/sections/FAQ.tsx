@@ -19,7 +19,7 @@ export function FAQ() {
       <div className="absolute inset-0 grid-dots opacity-15 pointer-events-none" />
 
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 xl:gap-16 items-start">
           {/* Left panel */}
           <div className="lg:col-span-2 lg:sticky lg:top-28" ref={ref}>
             <motion.div
@@ -53,7 +53,7 @@ export function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="glass-strong rounded-3xl p-8 border border-white/10"
+              className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/10"
             >
               <p className="text-base font-bold text-white mb-3">
                 Still have questions?
