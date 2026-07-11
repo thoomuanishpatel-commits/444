@@ -1,0 +1,120 @@
+export const portfolioItems = [
+  {
+    id: "nexahealth",
+    category: "Healthcare",
+    title: "NexaHealth — Hospital Management Platform",
+    description:
+      "A comprehensive hospital management system with patient portal, appointment scheduling, EMR, and real-time analytics dashboard.",
+    image: "/portfolio/nexahealth.jpg",
+    mockupType: "laptop",
+    tags: ["Next.js", "Node.js", "PostgreSQL", "AI"],
+    metrics: [
+      { label: "Faster Appointments", value: "60%" },
+      { label: "Patient Satisfaction", value: "98%" },
+      { label: "Admin Time Saved", value: "40h/mo" },
+    ],
+    color: "#0ea5e9",
+    link: "#",
+    featured: true,
+  },
+  {
+    id: "stellareat",
+    category: "Restaurant",
+    title: "StellarEat — Restaurant Chain Platform",
+    description:
+      "Online ordering, table reservations, loyalty program, and kitchen dashboard for a 50-location restaurant chain.",
+    image: "/portfolio/stellareat.jpg",
+    mockupType: "phone",
+    tags: ["React Native", "Stripe", "Real-time", "Maps"],
+    metrics: [
+      { label: "Revenue Increase", value: "45%" },
+      { label: "Orders/Day", value: "2,000+" },
+      { label: "App Rating", value: "4.9★" },
+    ],
+    color: "#f59e0b",
+    link: "#",
+    featured: true,
+  },
+  {
+    id: "eduvault",
+    category: "Education",
+    title: "EduVault — University SaaS Platform",
+    description:
+      "A complete LMS and university management platform serving 50,000+ students with live classes, assignments, and analytics.",
+    image: "/portfolio/eduvault.jpg",
+    mockupType: "tablet",
+    tags: ["Next.js", "WebRTC", "AI Grading", "SaaS"],
+    metrics: [
+      { label: "Active Students", value: "50K+" },
+      { label: "Course Completion", value: "87%" },
+      { label: "Institutions", value: "120+" },
+    ],
+    color: "#7c3aed",
+    link: "#",
+    featured: false,
+  },
+  {
+    id: "luxestay",
+    category: "Hospitality",
+    title: "LuxeStay — Luxury Hotel Booking Platform",
+    description:
+      "A premium hotel booking and property management system with concierge AI, dynamic pricing, and guest experience tools.",
+    image: "/portfolio/luxestay.jpg",
+    mockupType: "laptop",
+    tags: ["React", "AI", "Stripe", "Maps"],
+    metrics: [
+      { label: "Booking Increase", value: "70%" },
+      { label: "Properties", value: "300+" },
+      { label: "RevPAR Growth", value: "+35%" },
+    ],
+    color: "#06b6d4",
+    link: "#",
+    featured: false,
+  },
+  {
+    id: "buildpro",
+    category: "Construction",
+    title: "BuildPro — Construction Management App",
+    description:
+      "End-to-end project management for construction companies with task tracking, crew management, and cost estimation AI.",
+    image: "/portfolio/buildpro.jpg",
+    mockupType: "phone",
+    tags: ["React Native", "AI", "Maps", "IoT"],
+    metrics: [
+      { label: "Projects Managed", value: "500+" },
+      { label: "Cost Overruns", value: "-30%" },
+      { label: "Time Savings", value: "25%" },
+    ],
+    color: "#f97316",
+    link: "#",
+    featured: false,
+  },
+  {
+    id: "finflow",
+    category: "Finance",
+    title: "FinFlow — Enterprise Finance Dashboard",
+    description:
+      "Real-time financial analytics, automated reporting, and AI-powered forecasting for enterprise CFOs.",
+    image: "/portfolio/finflow.jpg",
+    mockupType: "laptop",
+    tags: ["Next.js", "D3.js", "AI/ML", "AWS"],
+    metrics: [
+      { label: "Data Sources", value: "50+" },
+      { label: "Reports Automated", value: "200+/mo" },
+      { label: "Forecast Accuracy", value: "94%" },
+    ],
+    color: "#6366f1",
+    link: "#",
+    featured: false,
+  },
+];
+
+export const portfolioCategories = [
+  "All",
+  "Healthcare",
+  "Restaurant",
+  "Education",
+  "Hospitality",
+  "Construction",
+  "Finance",
+];
