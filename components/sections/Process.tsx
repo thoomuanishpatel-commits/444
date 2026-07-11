@@ -159,7 +159,7 @@ export function Process() {
 
                   {/* Left content */}
                   <div className={`${isEven ? "md:text-right md:pr-16" : "md:col-start-2 md:pl-16"}`}>
-                    <div className={`glass rounded-3xl p-8 border border-white/[0.06] hover:border-white/10 transition-all duration-300 group relative`}>
+                    <div className="glass rounded-3xl p-8 border border-white/[0.06] hover:border-white/12 hover:transform hover:-translate-y-1 transition-all duration-300 group relative shadow-premium">
                       {/* Glow */}
                       <div
                         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -170,7 +170,7 @@ export function Process() {
 
                       <div className={`flex items-start gap-5 ${isEven ? "md:flex-row-reverse" : ""}`}>
                         <div
-                          className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                          className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[12deg]"
                           style={{
                             background: `${step.color}15`,
                             border: `1px solid ${step.color}25`,
@@ -232,7 +232,7 @@ export function Process() {
           </p>
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="btn-primary px-8 py-4 text-base"
+            className="btn-primary text-sm"
           >
             <span>Start Your Project Today</span>
           </button>
