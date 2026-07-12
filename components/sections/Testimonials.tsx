@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { testimonials } from "@/data/testimonials";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Container } from "@/components/layout/Container";
 
 export function Testimonials() {
   const [active, setActive] = useState(0);
@@ -16,7 +17,7 @@ export function Testimonials() {
   const current = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
+    <section id="testimonials" className="relative overflow-hidden py-24">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -26,9 +27,9 @@ export function Testimonials() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header */}
-        <div ref={ref} className="text-left max-w-3xl mb-16">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,7 +51,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50"
           >
             Don&apos;t take our word for it. Here&apos;s what our clients say after working
             with AARIVON.
@@ -238,7 +239,7 @@ export function Testimonials() {
             <span className="text-white/40 text-sm font-semibold">500+ verified reviews</span>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowUpRight, Mail, Phone, MapPin, MessageCircle, Send, Check, ChevronDown } from "lucide-react";
 import toast from "react-hot-toast";
+import { Container } from "@/components/layout/Container";
 
 const contactInfo = [
   {
@@ -80,7 +81,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
+    <section id="contact" className="relative overflow-hidden py-24">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -90,7 +91,7 @@ export function Contact() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header */}
         <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -402,7 +403,7 @@ export function Contact() {
             )}
           </motion.div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

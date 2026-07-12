@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useRef } from "react";
+import { Container } from "@/components/layout/Container";
 
 const steps = [
   {
@@ -76,7 +77,7 @@ export function Process() {
   });
 
   return (
-    <section id="process" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
+    <section id="process" className="relative overflow-hidden py-24">
       {/* Background */}
       <div className="absolute inset-0 grid-dots opacity-20 pointer-events-none" />
       <div
@@ -87,7 +88,7 @@ export function Process() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header */}
         <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -240,7 +241,7 @@ export function Process() {
             <span>Start Your Project Today</span>
           </button>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

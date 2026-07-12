@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { useInView } from "react-intersection-observer";
 import { portfolioItems, portfolioCategories } from "@/data/portfolio";
 import { ArrowUpRight, ExternalLink, TrendingUp } from "lucide-react";
+import { Container } from "@/components/layout/Container";
 
 function PortfolioCard({
   item,
@@ -217,7 +218,7 @@ export function Portfolio() {
       : portfolioItems.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="portfolio" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
+    <section id="portfolio" className="relative overflow-hidden py-24">
       {/* Background */}
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
@@ -227,7 +228,7 @@ export function Portfolio() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header */}
         <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -313,7 +314,7 @@ export function Portfolio() {
             </button>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

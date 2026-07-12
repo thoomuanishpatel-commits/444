@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Menu, X, ChevronDown, ArrowUpRight, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { services } from "@/data/services";
+import { Container } from "@/components/layout/Container";
 
 const navLinks = [
   { label: "Services", href: "#services", hasMega: true },
@@ -58,11 +59,11 @@ export function Navbar() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.8 }}
         className={`fixed top-0 left-0 right-0 z-[900] transition-all duration-500 ${
           scrolled
-            ? "py-4 bg-white/20 dark:bg-black/40 backdrop-blur-md border-b border-black/[0.03] dark:border-white/[0.05] shadow-glass-premium"
-            : "py-6 bg-transparent"
+            ? "py-5 bg-white/20 dark:bg-black/40 backdrop-blur-md border-b border-black/[0.03] dark:border-white/[0.05] shadow-glass-premium"
+            : "py-8 bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center justify-between">
+        <Container className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
@@ -72,7 +73,7 @@ export function Navbar() {
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-black text-sm transition-all duration-300 group-hover:scale-105"
               style={{
-                background: "linear-gradient(135deg, #0ea5e9, #7c3aed)",
+                background: "gradient-to-br from-[#0ea5e9] to-[#7c3aed]",
                 boxShadow: "0 0 20px rgba(14,165,233,0.3)",
               }}
             >
@@ -185,7 +186,7 @@ export function Navbar() {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-all duration-200"
+                className="w-11 h-11 rounded-lg flex items-center justify-center text-white/50 hover:text-white hover:bg-white/5 transition-all duration-200"
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
@@ -194,7 +195,7 @@ export function Navbar() {
 
             <button
               onClick={() => scrollTo("#contact")}
-              className="btn-primary text-sm px-6 py-3 shadow-[0_0_20px_rgba(14,165,233,0.15)] hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-all duration-300"
+              className="btn-primary text-sm h-11 px-5 flex items-center justify-center gap-1.5 rounded-lg shadow-[0_0_20px_rgba(14,165,233,0.15)] hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-all duration-300"
             >
               <span>Start Your Project</span>
               <ArrowUpRight size={14} className="relative z-10" />
@@ -209,7 +210,7 @@ export function Navbar() {
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
-        </div>
+        </Container>
       </motion.nav>
 
       {/* Mobile Menu */}

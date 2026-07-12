@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { SmoothCounter } from "@/components/ui/SmoothCounter";
 import { Shield, Zap, Users, Award, TrendingUp, Clock, Star, CheckCircle } from "lucide-react";
+import { Container } from "@/components/layout/Container";
 
 const reasons = [
   {
@@ -72,12 +73,12 @@ export function WhyAarivon() {
   const { ref: statsRef, inView: statsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="why-aarivon" className="relative overflow-hidden py-16 md:py-24 lg:py-32 alt-bg">
+    <section id="why-aarivon" className="relative overflow-hidden py-24 alt-bg">
       {/* Background */}
       <div className="absolute inset-0 hero-glow pointer-events-none" />
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header */}
         <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -109,11 +110,8 @@ export function WhyAarivon() {
           </motion.p>
         </div>
 
-        {/* Spacer */}
-        <div className="h-8 lg:h-12 pointer-events-none" />
-
         {/* Reasons grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-24 lg:mb-32">
           {reasons.map((reason, i) => {
             const Icon = reason.icon;
             return (
@@ -123,22 +121,23 @@ export function WhyAarivon() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="relative group"
+                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
+                className="relative group cursor-pointer"
               >
-                <div className="glass rounded-[24px] p-8 md:p-10 h-full flex flex-col justify-between items-start border border-white/[0.06] hover:border-white/10 transition-all duration-300 hover:transform hover:-translate-y-1">
+                <div className="glass rounded-[20px] p-6 md:p-8 h-full flex flex-col justify-between items-start border border-white/12 group-hover:border-white/25 transition-all duration-300 shadow-premium relative overflow-hidden">
                   {/* Glow */}
                   <div
-                    className="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(ellipse at 20% 0%, ${reason.color}12 0%, transparent 60%)`,
                     }}
                   />
 
                   {/* Top content */}
-                  <div>
+                  <div className="flex flex-col w-full relative z-10">
                     {/* Icon */}
                     <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110"
                       style={{
                         background: `${reason.color}15`,
                         border: `1px solid ${reason.color}25`,
@@ -147,15 +146,18 @@ export function WhyAarivon() {
                       <Icon size={22} style={{ color: reason.color }} />
                     </div>
 
-                    <h3 className="text-white font-bold text-xl mb-3">{reason.title}</h3>
-                    <p className="text-white/45 text-sm leading-relaxed mb-8">
+                    <h3 className="text-white font-bold text-xl mb-3 tracking-tight">{reason.title}</h3>
+                    <p className="text-white/50 text-sm leading-relaxed mb-6 line-clamp-2 h-10">
                       {reason.description}
                     </p>
                   </div>
 
+                  {/* Flexible Spacer */}
+                  <div className="flex-grow min-h-[16px]" />
+
                   {/* Stat */}
                   <div
-                    className="inline-flex items-baseline gap-2 px-4 py-2 rounded-xl mt-auto"
+                    className="inline-flex items-baseline gap-2 px-4 py-2 rounded-xl mt-auto relative z-10"
                     style={{
                       background: `${reason.color}10`,
                       border: `1px solid ${reason.color}20`,
@@ -176,27 +178,64 @@ export function WhyAarivon() {
           })}
         </div>
 
-        {/* Comparison Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-          {/* AARIVON column */}
+        {/* Second Content Block - Perfectly aligned to center vertical grid */}
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+          {/* Stars */}
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Star size={16} className="text-yellow-400" fill="currentColor" />
+            <Star size={16} className="text-yellow-400" fill="currentColor" />
+            <Star size={16} className="text-yellow-400" fill="currentColor" />
+            <Star size={16} className="text-yellow-400" fill="currentColor" />
+            <Star size={16} className="text-yellow-400" fill="currentColor" />
+            <span className="text-sm text-white/40 ml-1 font-medium">5.0 from 500+ reviews</span>
+          </div>
+
+          {/* Heading */}
+          <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight text-center">
+            The Agency That Thinks Like a <span className="text-gradient">Tech Company</span>
+          </h3>
+
+          {/* Paragraph */}
+          <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto mb-12 text-center">
+            Most agencies deliver pretty pictures. We deliver strategic digital
+            infrastructure. Every decision we make is backed by data, aligned
+            with your business goals, and built to scale.
+          </p>
+
+          {/* Statistics Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-16 justify-items-center">
+            {[
+              { value: "500+", label: "Happy Clients" },
+              { value: "6+", label: "Years" },
+              { value: "30+", label: "Countries" },
+              { value: "99%", label: "Satisfaction" },
+            ].map((s, i) => (
+              <div key={i} className="glass rounded-[20px] p-6 text-center flex flex-col items-center border border-white/12 w-full transition-all duration-300 hover:border-white/25 hover:transform hover:-translate-y-1 hover:shadow-premium">
+                <p className="text-2xl lg:text-3xl font-black text-gradient tracking-tight">{s.value}</p>
+                <p className="text-xs text-white/40 mt-1 font-medium">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Comparison Card (Reduced visual weight, balanced checkmarks grid) */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="gradient-border lg:col-span-6"
+            className="w-full max-w-3xl mb-12 border border-white/10 rounded-[24px] overflow-hidden"
           >
-            <div className="glass-strong rounded-[24px] p-8 md:p-10">
+            <div className="glass-strong p-8 md:p-10 text-left">
               <div className="flex items-center gap-4 mb-8">
                 <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-white text-base"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white text-sm"
                   style={{ background: "linear-gradient(135deg, #0ea5e9, #7c3aed)" }}
                 >
                   A
                 </div>
                 <div>
-                  <p className="font-bold text-white text-base">AARIVON</p>
-                  <p className="text-xs text-white/40 tracking-wider">Premium Digital Agency</p>
+                  <p className="font-bold text-white text-base leading-none">AARIVON Advantage</p>
+                  <p className="text-xs text-white/40 mt-1">Why top companies choose our process</p>
                 </div>
                 <div className="ml-auto">
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -204,7 +243,7 @@ export function WhyAarivon() {
                   </span>
                 </div>
               </div>
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                 {comparisonPoints.map((point, i) => (
                   <motion.div
                     key={i}
@@ -212,9 +251,9 @@ export function WhyAarivon() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05, duration: 0.4 }}
-                    className="flex items-center gap-3.5"
+                    className="flex items-center gap-3"
                   >
-                    <CheckCircle size={18} className="text-emerald-400 flex-shrink-0" />
+                    <CheckCircle size={16} className="text-emerald-400 flex-shrink-0" />
                     <span className="text-sm text-white/70 leading-relaxed">{point}</span>
                   </motion.div>
                 ))}
@@ -222,56 +261,15 @@ export function WhyAarivon() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col gap-8 lg:col-span-6 items-center"
+          {/* Button CTA */}
+          <button
+            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+            className="btn-primary self-center h-14 px-8 text-base rounded-xl flex items-center justify-center transition-all duration-300"
           >
-            <div className="text-center w-full">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <Star size={16} className="text-yellow-400" fill="currentColor" />
-                <Star size={16} className="text-yellow-400" fill="currentColor" />
-                <Star size={16} className="text-yellow-400" fill="currentColor" />
-                <Star size={16} className="text-yellow-400" fill="currentColor" />
-                <Star size={16} className="text-yellow-400" fill="currentColor" />
-                <span className="text-sm text-white/40 ml-1 font-medium">5.0 from 500+ reviews</span>
-              </div>
-              <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 leading-tight tracking-tight text-center">
-                The Agency That Thinks Like a{" "}
-                <span className="text-gradient">Tech Company</span>
-              </h3>
-              <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto text-center">
-                Most agencies deliver pretty pictures. We deliver strategic digital
-                infrastructure. Every decision we make is backed by data, aligned
-                with your business goals, and built to scale.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-8 w-full">
-              {[
-                { value: "500+", label: "Happy Clients" },
-                { value: "6+", label: "Years" },
-                { value: "30+", label: "Countries" },
-                { value: "99%", label: "Satisfaction" },
-              ].map((s, i) => (
-                <div key={i} className="glass rounded-[24px] p-6 md:p-8 text-center flex flex-col items-center border border-white/[0.06] transition-all duration-300 hover:border-white/12 hover:transform hover:-translate-y-1 hover:shadow-premium">
-                  <p className="text-2xl lg:text-3xl font-black text-gradient tracking-tight">{s.value}</p>
-                  <p className="text-xs text-white/40 mt-1 font-medium">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="btn-primary self-center text-sm"
-            >
-              <span>Work With Us</span>
-            </button>
-          </motion.div>
+            <span>Work With Us</span>
+          </button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

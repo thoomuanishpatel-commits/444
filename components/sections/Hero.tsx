@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Play, ChevronDown, Sparkles, Zap, Globe } from "lucide-react";
 import { SmoothCounter } from "@/components/ui/SmoothCounter";
 import { useInView } from "react-intersection-observer";
+import { Container } from "@/components/layout/Container";
 
 const stats = [
   { value: 500, suffix: "+", label: "Happy Clients" },
@@ -14,10 +15,10 @@ const stats = [
 ];
 
 const floatingBadges = [
-  { icon: "⚡", text: "AI-Powered", delay: 0, x: "-10%", y: "20%" },
-  { icon: "🚀", text: "500+ Projects", delay: 0.3, x: "85%", y: "15%" },
-  { icon: "⭐", text: "Awwwards Level", delay: 0.6, x: "80%", y: "70%" },
-  { icon: "🔒", text: "99.9% Uptime", delay: 0.9, x: "-5%", y: "75%" },
+  { icon: "⚡", text: "AI-Powered", delay: 0, x: "8%", y: "22%" },
+  { icon: "🚀", text: "500+ Projects", delay: 0.3, x: "78%", y: "18%" },
+  { icon: "⭐", text: "Awwwards Level", delay: 0.6, x: "80%", y: "68%" },
+  { icon: "🔒", text: "99.9% Uptime", delay: 0.9, x: "10%", y: "72%" },
 ];
 
 const containerVariants = {
@@ -223,116 +224,118 @@ export function Hero() {
       ))}
 
       {/* ── Main Content ── */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center pt-32 pb-24 md:pt-40 md:pb-32"
-      >
-        {/* Top badge */}
+      <Container className="relative z-10">
         <motion.div
-          variants={itemVariants}
-          className="section-label gap-2 mb-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="w-full text-center flex flex-col items-center pt-20 pb-20 md:pt-28 md:pb-24"
         >
-          <Sparkles size={12} />
-          <span>World-Class Digital Agency — Clutch 4.9/5 ★ (280+ Reviews)</span>
-          <Sparkles size={12} />
-        </motion.div>
-
-        {/* Main Headline */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-[80px] font-black text-white max-w-5xl mx-auto leading-[1.1] tracking-tighter mb-8 text-center"
-        >
-          We Build{" "}
-          <span className="text-gradient-animated">Digital Empires</span>
-          <br />
-          That Dominate{" "}
-          <span className="relative inline-block text-center">
-            The Future
-            <motion.span
-              className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
-              style={{
-                background: "gradient-to-r from-brand-blue via-brand-purple to-brand-cyan",
-              }}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 2.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            />
-          </span>
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p
-          variants={itemVariants}
-          className="body-lg max-w-[700px] mb-12 leading-[1.8] text-white/55 text-center mx-auto"
-        >
-          AARIVON is a premium digital agency crafting world-class websites, mobile apps,
-          AI solutions, and brand identities for companies that refuse to settle for ordinary.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-16"
-        >
-          <button
-            onClick={scrollToContact}
-            className="btn-primary w-full px-8 py-4 text-base rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
+          {/* Top badge */}
+          <motion.div
+            variants={itemVariants}
+            className="section-label gap-2 mb-6"
           >
-            <span>Start Your Project</span>
-            <ArrowUpRight
-              size={18}
-              className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-            />
-          </button>
-          <button
-            onClick={scrollToPortfolio}
-            className="btn-secondary w-full px-8 py-4 text-base rounded-2xl transition-all duration-300 group flex items-center justify-center gap-2.5"
+            <Sparkles size={12} />
+            <span>World-Class Digital Agency — Clutch 4.9/5 ★ (280+ Reviews)</span>
+            <Sparkles size={12} />
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl md:text-7xl lg:text-[80px] font-black text-white max-w-4xl mx-auto leading-[1.1] tracking-tighter mb-6 text-center"
           >
-            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
-              <Play size={12} className="ml-0.5" fill="currentColor" />
-            </div>
-            View Our Work
-          </button>
-        </motion.div>
+            We Build{" "}
+            <span className="text-gradient-animated">Digital Empires</span>
+            <br />
+            That Dominate{" "}
+            <span className="relative inline-block text-center">
+              The Future
+              <motion.span
+                className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
+                style={{
+                  background: "gradient-to-r from-brand-blue via-brand-purple to-brand-cyan",
+                }}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 2.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </span>
+          </motion.h1>
 
-        {/* Stats */}
-        <motion.div
-          ref={inViewRef}
-          variants={itemVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/[0.08] w-full max-w-3xl mb-8"
-        >
-          {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center gap-2">
-              <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                <SmoothCounter value={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="text-xs text-white/40 font-semibold text-center uppercase tracking-wider">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
+          {/* Subheadline */}
+          <motion.p
+            variants={itemVariants}
+            className="body-lg max-w-2xl mb-8 leading-[1.8] text-white/55 text-center mx-auto"
+          >
+            AARIVON is a premium digital agency crafting world-class websites, mobile apps,
+            AI solutions, and brand identities for companies that refuse to settle for ordinary.
+          </motion.p>
 
-        {/* Tech logos row */}
-        <motion.div
-          variants={itemVariants}
-          className="flex items-center gap-4 flex-wrap justify-center"
-        >
-          <span className="text-xs text-white/25 mr-1 font-medium">Built with</span>
-          {["Next.js", "React", "Node.js", "AWS", "OpenAI", "Three.js"].map(
-            (tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 rounded-full text-xs font-semibold text-white/40 border border-white/[0.08] bg-white/[0.03] hover:text-white/70 hover:border-white/20 transition-all duration-300"
-              >
-                {tech}
-              </span>
-            )
-          )}
+          {/* CTA Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-20 justify-items-center"
+          >
+            <button
+              onClick={scrollToContact}
+              className="btn-primary w-full h-14 flex items-center justify-center gap-2 rounded-xl text-base shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
+            >
+              <span>Start Your Project</span>
+              <ArrowUpRight
+                size={18}
+                className="relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
+            </button>
+            <button
+              onClick={scrollToPortfolio}
+              className="btn-secondary w-full h-14 flex items-center justify-center gap-2 rounded-xl text-base transition-all duration-300 group"
+            >
+              <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
+                <Play size={10} className="ml-0.5" fill="currentColor" />
+              </div>
+              View Our Work
+            </button>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            ref={inViewRef}
+            variants={itemVariants}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 mt-6 border-t border-white/[0.08] w-full max-w-3xl mb-8 justify-items-center"
+          >
+            {stats.map((stat, i) => (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                  <SmoothCounter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="text-xs text-white/40 font-semibold text-center uppercase tracking-wider">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Tech logos row */}
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center gap-4 flex-wrap justify-center"
+          >
+            <span className="text-xs text-white/25 mr-1 font-medium">Built with</span>
+            {["Next.js", "React", "Node.js", "AWS", "OpenAI", "Three.js"].map(
+              (tech) => (
+                <span
+                  key={tech}
+                  className="px-4 py-2 rounded-full text-xs font-semibold text-white/40 border border-white/[0.08] bg-white/[0.03] hover:text-white/70 hover:border-white/20 transition-all duration-300"
+                >
+                  {tech}
+                </span>
+              )
+            )}
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </Container>
 
       {/* ── Scroll Indicator ── */}
       <motion.button

@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { services } from "@/data/services";
+import { Container } from "@/components/layout/Container";
 import {
   Globe,
   Smartphone,
@@ -25,7 +26,7 @@ import {
 // Helper to return premium Lucide icons for each service
 function getServiceIcon(id: string) {
   const iconProps = {
-    size: 24,
+    size: 28,
     className: "relative z-10 transition-transform duration-500 group-hover:scale-110",
   };
   switch (id) {
@@ -129,44 +130,47 @@ function ServiceCard({
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
-        borderColor: isHovered ? service.glowColor : "rgba(255, 255, 255, 0.08)",
+        borderColor: isHovered ? service.glowColor : "rgba(255, 255, 255, 0.12)",
         background: isHovered ? "rgba(255, 255, 255, 0.04)" : "rgba(255, 255, 255, 0.02)",
         boxShadow: isHovered
-          ? `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 35px ${service.glowColor}25`
+          ? `0 20px 45px rgba(0, 0, 0, 0.45), 0 0 30px ${service.glowColor}20`
           : "none",
       }}
-      className="perspective-card group relative rounded-[24px] p-8 md:p-10 h-full min-h-[380px] sm:min-h-[420px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
+      className="perspective-card group relative rounded-[20px] p-6 md:p-8 h-full min-h-[260px] md:min-h-[290px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden shadow-premium"
       onClick={onOpen}
     >
       {/* Hover glow */}
       <div
-        className="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          background: `radial-gradient(ellipse at 50% 0%, ${service.glowColor}25 0%, transparent 70%)`,
+          background: `radial-gradient(ellipse at 50% 0%, ${service.glowColor}20 0%, transparent 70%)`,
         }}
       />
 
       {/* Top Half */}
-      <div>
+      <div className="flex flex-col">
         {/* Icon */}
         <div
-          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110`}
+          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110`}
           style={{ boxShadow: `0 0 25px ${service.glowColor}` }}
         >
           {getServiceIcon(service.id)}
         </div>
 
         {/* Content */}
-        <h3 className="font-bold text-white text-xl mb-5 group-hover:text-gradient transition-all duration-300 tracking-tight">
+        <h3 className="font-bold text-white text-xl mb-3 group-hover:text-gradient transition-all duration-300 tracking-tight">
           {service.title}
         </h3>
-        <p className="text-sm text-white/50 leading-relaxed">
+        <p className="text-sm text-white/55 leading-relaxed line-clamp-2 h-10">
           {service.shortDesc}
         </p>
       </div>
 
+      {/* Flexible Spacer */}
+      <div className="flex-grow min-h-[16px]" />
+
       {/* Bottom Half / Stat */}
-      <div className="flex items-center justify-between pt-6 border-t border-white/[0.06] mt-10">
+      <div className="flex items-center justify-between pt-5 border-t border-white/[0.08] mt-6">
         <span className="text-xs text-white/40">
           <span className="text-white/85 font-semibold">{service.stats.value}</span>{" "}
           {service.stats.label}
@@ -277,7 +281,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden py-16 md:py-24 lg:py-32"
+      className="relative overflow-hidden py-24"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -301,9 +305,9 @@ export function Services() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -316,7 +320,7 @@ export function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white mb-6 text-4xl sm:text-6xl lg:text-[76px] font-black tracking-[-0.03em] lg:tracking-[-2px] leading-[1.1] lg:leading-[1.05]"
+            className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight"
           >
             Services That <span className="text-gradient">Drive Results</span>
           </motion.h2>
@@ -324,7 +328,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-white/60 text-lg md:text-[21px] max-w-2xl mx-auto leading-relaxed md:leading-[1.8]"
+            className="text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
           >
             From concept to deployment — we cover every digital touchpoint your
             business needs to win in today&apos;s competitive landscape.
@@ -369,7 +373,7 @@ export function Services() {
             </span>
           </button>
         </motion.div>
-      </div>
+      </Container>
 
       <ServiceModal service={selected} onClose={() => setSelected(null)} />
     </section>

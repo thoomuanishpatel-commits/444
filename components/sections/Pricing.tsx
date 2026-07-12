@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { websitePricing, appPricing } from "@/data/pricing";
 import { Check, ArrowUpRight, Zap, Star } from "lucide-react";
+import { Container } from "@/components/layout/Container";
 
 function PricingCard({
   plan,
@@ -137,7 +138,7 @@ export function Pricing() {
   const plans = activeTab === "website" ? websitePricing : appPricing;
 
   return (
-    <section id="pricing" className="relative overflow-hidden py-16 md:py-24 lg:py-32 alt-bg">
+    <section id="pricing" className="relative overflow-hidden py-24 alt-bg">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -147,7 +148,7 @@ export function Pricing() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header */}
         <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -251,7 +252,7 @@ export function Pricing() {
             </button>
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -4,8 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { faqs } from "@/data/faq";
-import { Plus, Minus } from "lucide-react";
-import { ArrowUpRight } from "lucide-react";
+import { Plus, Minus, ArrowUpRight } from "lucide-react";
+import { Container } from "@/components/layout/Container";
 
 export function FAQ() {
   const [open, setOpen] = useState<string | null>("q1");
@@ -14,11 +14,11 @@ export function FAQ() {
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   return (
-    <section id="faq" className="relative overflow-hidden py-16 md:py-24 lg:py-32 alt-bg">
+    <section id="faq" className="relative overflow-hidden py-24 alt-bg">
       {/* Background */}
       <div className="absolute inset-0 grid-dots opacity-15 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* Left panel */}
           <div className="lg:col-span-2 lg:sticky lg:top-28" ref={ref}>
@@ -130,7 +130,7 @@ export function FAQ() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Container } from "@/components/layout/Container";
 
 const logos = [
   { name: "Google", abbr: "G" },
@@ -35,20 +36,22 @@ export function TrustedBy() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="trusted-by" className="py-12 md:py-16 relative overflow-hidden border-y border-white/[0.05]">
+    <section id="trusted-by" className="py-16 relative overflow-hidden border-y border-white/[0.05]">
       {/* Subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-white/[0.01] to-black pointer-events-none z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8" ref={ref}>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center text-xs text-white/30 uppercase tracking-[0.3em] font-semibold"
-        >
-          Trusted by Industry Leaders Worldwide
-        </motion.p>
-      </div>
+      <Container className="mb-8">
+        <div ref={ref}>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="text-center text-xs text-white/30 uppercase tracking-[0.3em] font-semibold"
+          >
+            Trusted by Industry Leaders Worldwide
+          </motion.p>
+        </div>
+      </Container>
 
       {/* Infinite marquee */}
       <div className="relative flex overflow-hidden">
