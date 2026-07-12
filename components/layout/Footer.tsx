@@ -95,7 +95,7 @@ export function Footer() {
       <div className="relative z-10">
         {/* CTA Banner */}
         <div className="border-b border-white/[0.05]">
-          <div className="container-custom py-16 text-center">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export function Footer() {
         <div className="h-10 lg:h-16 pointer-events-none" />
 
         {/* Main footer */}
-        <div className="container-custom py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12">
             {/* Brand column */}
             <div className="md:col-span-2 lg:col-span-2">
@@ -224,7 +224,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/[0.05] mt-12 lg:mt-16">
-          <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/25 text-center">
               © 2026 AARIVON. All rights reserved. Built with ❤️ by AARIVON.
             </p>

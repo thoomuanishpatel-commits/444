@@ -62,7 +62,7 @@ export function Navbar() {
             : "py-6 bg-transparent"
         }`}
       >
-        <div className="container-custom flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"

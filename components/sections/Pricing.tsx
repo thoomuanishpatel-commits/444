@@ -137,7 +137,7 @@ export function Pricing() {
   const plans = activeTab === "website" ? websitePricing : appPricing;
 
   return (
-    <section id="pricing" className="section-padding relative overflow-hidden bg-zinc-950/30 border-y border-white/[0.02]">
+    <section id="pricing" className="relative overflow-hidden py-16 md:py-24 lg:py-32 alt-bg">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -147,9 +147,9 @@ export function Pricing() {
         }}
       />
 
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -215,7 +215,7 @@ export function Pricing() {
               setActiveTab("website");
             }
           }}
-          className={`grid gap-5 sm:gap-6 lg:gap-8 cursor-grab active:cursor-grabbing select-none ${
+          className={`grid gap-6 lg:gap-8 cursor-grab active:cursor-grabbing select-none ${
             activeTab === "website"
               ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
               : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto"
@@ -234,7 +234,7 @@ export function Pricing() {
           transition={{ duration: 0.7 }}
           className="mt-16 sm:mt-20 lg:mt-24 text-center"
         >
-          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/[0.08] max-w-3xl mx-auto">
+          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-6 lg:gap-8 rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/[0.08] max-w-3xl mx-auto">
             <div className="text-3xl">💬</div>
             <div className="flex-1 text-left">
               <p className="font-bold text-white text-base">Need a custom solution?</p>

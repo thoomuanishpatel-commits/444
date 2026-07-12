@@ -16,7 +16,7 @@ export function Testimonials() {
   const current = testimonials[active];
 
   return (
-    <section id="testimonials" className="section-padding relative overflow-hidden">
+    <section id="testimonials" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -26,9 +26,9 @@ export function Testimonials() {
         }}
       />
 
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -180,10 +180,10 @@ export function Testimonials() {
         </motion.div>
 
         {/* Spacer */}
-        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
+        <div className="h-8 lg:h-12 pointer-events-none" />
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {testimonials.map((t, i) => (
             <motion.button
               key={t.id}
@@ -192,7 +192,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5 }}
-              className={`testimonial-card text-left transition-all duration-300 ${
+              className={`testimonial-card text-left p-6 md:p-8 transition-all duration-300 ${
                 i === active
                   ? "border-brand-blue/25 bg-brand-blue/[0.04]"
                   : "hover:border-white/10"

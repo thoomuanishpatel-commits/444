@@ -149,7 +149,7 @@ function PortfolioCard({
         </div>
 
         {/* Content */}
-        <div className="p-5 sm:p-6 lg:p-8">
+        <div className="p-6 lg:p-8">
           <div className="flex items-start justify-between gap-3 mb-4">
             <div>
               <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 inline-block mb-3">
@@ -217,7 +217,7 @@ export function Portfolio() {
       : portfolioItems.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="portfolio" className="section-padding relative overflow-hidden">
+    <section id="portfolio" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
       {/* Background */}
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
@@ -227,9 +227,9 @@ export function Portfolio() {
         }}
       />
 
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -283,7 +283,7 @@ export function Portfolio() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           <AnimatePresence>
             {filtered.map((item, i) => (
               <PortfolioCard key={item.id} item={item} index={i} />

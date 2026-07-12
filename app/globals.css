@@ -219,64 +219,64 @@ a, button, [role="button"] {
   ─────────────────────────────────────────── */
 
   .section-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 64px;      /* 8px scale */
+    padding-bottom: 64px;   /* 8px scale */
     box-sizing: border-box;
   }
 
   @media (min-width: 640px) {
     .section-padding {
-      padding-top: 96px;
+      padding-top: 96px;    /* 8px scale */
       padding-bottom: 96px;
     }
   }
 
   @media (min-width: 1024px) {
     .section-padding {
-      padding-top: 128px;
+      padding-top: 128px;   /* 8px scale */
       padding-bottom: 128px;
     }
   }
 
   /* Hero — maximum breathing room */
   .section-padding-hero {
-    padding-top: 120px;
-    padding-bottom: 100px;
+    padding-top: 96px;      /* 8px scale */
+    padding-bottom: 96px;   /* 8px scale */
     box-sizing: border-box;
   }
 
   @media (min-width: 640px) {
     .section-padding-hero {
-      padding-top: 140px;
-      padding-bottom: 120px;
+      padding-top: 128px;   /* 8px scale */
+      padding-bottom: 128px;
     }
   }
 
   @media (min-width: 1024px) {
     .section-padding-hero {
-      padding-top: 160px;
-      padding-bottom: 140px;
+      padding-top: 160px;   /* 8px scale */
+      padding-bottom: 160px;
     }
   }
 
   /* Compact — logo strips, trust bars */
   .section-padding-compact {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 32px;      /* 8px scale */
+    padding-bottom: 32px;   /* 8px scale */
     box-sizing: border-box;
   }
 
   @media (min-width: 640px) {
     .section-padding-compact {
-      padding-top: 48px;
+      padding-top: 48px;    /* 8px scale */
       padding-bottom: 48px;
     }
   }
 
   @media (min-width: 1024px) {
     .section-padding-compact {
-      padding-top: 56px;
-      padding-bottom: 56px;
+      padding-top: 64px;    /* 8px scale */
+      padding-bottom: 64px;
     }
   }
 
@@ -293,28 +293,28 @@ a, button, [role="button"] {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;   /* 4px wider than before — thumb safe at 375px */
-    padding-right: 20px;
+    padding-left: 16px;   /* 16px = 2 * 8 */
+    padding-right: 16px;
     box-sizing: border-box;
   }
 
   @media (min-width: 640px) {
     .container-custom {
-      padding-left: 28px;
-      padding-right: 28px;
+      padding-left: 24px;   /* 24px = 3 * 8 */
+      padding-right: 24px;
     }
   }
 
   @media (min-width: 1024px) {
     .container-custom {
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: 32px;   /* 32px = 4 * 8 */
+      padding-right: 32px;
     }
   }
 
   @media (min-width: 1280px) {
     .container-custom {
-      padding-left: 48px;
+      padding-left: 48px;   /* 48px = 6 * 8 */
       padding-right: 48px;
     }
   }

@@ -135,7 +135,7 @@ function ServiceCard({
           ? `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 35px ${service.glowColor}25`
           : "none",
       }}
-      className="perspective-card group relative rounded-[20px] sm:rounded-[24px] p-5 sm:p-6 lg:p-8 h-full min-h-[300px] sm:min-h-[360px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
+      className="perspective-card group relative rounded-[20px] sm:rounded-[24px] p-6 lg:p-8 h-full min-h-[320px] sm:min-h-[360px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
       onClick={onOpen}
     >
       {/* Hover glow */}
@@ -277,7 +277,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="section-padding relative overflow-hidden"
+      className="relative overflow-hidden py-16 md:py-24 lg:py-32"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -301,9 +301,9 @@ export function Services() {
         />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div ref={ref} className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -337,7 +337,7 @@ export function Services() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-[1400px] mx-auto relative z-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10"
         >
           {services.map((service, index) => (
             <ServiceCard

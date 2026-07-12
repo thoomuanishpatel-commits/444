@@ -80,7 +80,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden">
+    <section id="contact" className="relative overflow-hidden py-16 md:py-24 lg:py-32">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -90,9 +90,9 @@ export function Contact() {
         }}
       />
 
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div ref={ref} className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -122,9 +122,9 @@ export function Contact() {
         </div>
 
         {/* Spacer */}
-        <div className="h-6 sm:h-8 lg:h-10 pointer-events-none" />
+        <div className="h-8 lg:h-12 pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
           {/* Left panel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -140,7 +140,7 @@ export function Contact() {
                   <a
                     key={i}
                     href={info.href}
-                    className="flex items-center gap-4 glass rounded-2xl sm:rounded-3xl p-4 sm:p-5 lg:p-6 border border-white/[0.06] hover:border-white/10 group transition-all duration-300"
+                    className="flex items-center gap-4 glass rounded-2xl sm:rounded-3xl p-4 lg:p-6 border border-white/[0.06] hover:border-white/10 group transition-all duration-300"
                   >
                     <div
                       className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
@@ -171,7 +171,7 @@ export function Contact() {
               href="https://wa.me/919876543210"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 sm:gap-3.5 px-4 sm:px-5 lg:px-6 py-4 sm:py-5 rounded-2xl sm:rounded-3xl font-semibold text-sm transition-all duration-300 border"
+              className="flex items-center gap-4 px-4 lg:px-6 py-4 rounded-2xl sm:rounded-3xl font-semibold text-sm transition-all duration-300 border"
               style={{
                 background: "rgba(16, 185, 129, 0.08)",
                 borderColor: "rgba(16, 185, 129, 0.2)",
@@ -184,7 +184,7 @@ export function Contact() {
             </a>
 
             {/* Trust signals */}
-            <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/[0.06]">
+            <div className="glass rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/[0.06]">
               <p className="text-sm font-bold text-white mb-5 uppercase tracking-wider">Why reach out?</p>
               <div className="space-y-4">
                 {[
@@ -217,7 +217,7 @@ export function Contact() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="glass-strong rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/10 text-center"
+                className="glass-strong rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/10 text-center"
               >
                 <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
                   <Check size={28} className="text-emerald-400" />
@@ -239,9 +239,9 @@ export function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="glass-strong rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/10"
+                className="glass-strong rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/10"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
                   {/* Name */}
                   <div>
                     <label className="text-xs font-semibold text-white/40 mb-2 block uppercase tracking-wider">

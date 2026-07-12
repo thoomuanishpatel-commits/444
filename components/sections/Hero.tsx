@@ -227,7 +227,7 @@ export function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 container-custom max-w-[1400px] text-center grid grid-cols-1 justify-items-center pt-40 pb-32"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center grid grid-cols-1 justify-items-center pt-32 pb-24 md:pt-40 md:pb-32"
       >
         {/* Top badge */}
         <motion.div
@@ -242,7 +242,7 @@ export function Hero() {
         {/* Main Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-[84px] font-black text-white max-w-5xl mx-auto leading-[1.05] tracking-tighter mb-8"
+          className="text-5xl md:text-7xl lg:text-[80px] font-black text-white max-w-5xl mx-auto leading-[1.1] tracking-tighter mb-8"
         >
           We Build{" "}
           <span className="text-gradient-animated">Digital Empires</span>
@@ -253,7 +253,7 @@ export function Hero() {
             <motion.span
               className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
               style={{
-                background: "linear-gradient(90deg, #0ea5e9, #7c3aed, #06b6d4)",
+                background: "gradient-to-r from-brand-blue via-brand-purple to-brand-cyan",
               }}
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
@@ -265,7 +265,7 @@ export function Hero() {
         {/* Subheadline */}
         <motion.p
           variants={itemVariants}
-          className="body-lg max-w-[700px] mb-16 leading-[1.8] text-white/55"
+          className="body-lg max-w-[700px] mb-12 leading-[1.8] text-white/55"
         >
           AARIVON is a premium digital agency crafting world-class websites, mobile apps,
           AI solutions, and brand identities for companies that refuse to settle for ordinary.
@@ -274,11 +274,11 @@ export function Hero() {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-20"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-16"
         >
           <button
             onClick={scrollToContact}
-            className="btn-primary w-full px-10 py-5 text-base rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
+            className="btn-primary w-full px-8 py-4 text-base rounded-2xl shadow-[0_0_30px_rgba(14,165,233,0.25)] hover:shadow-[0_0_50px_rgba(14,165,233,0.5)] transition-all duration-300 group"
           >
             <span>Start Your Project</span>
             <ArrowUpRight
@@ -288,7 +288,7 @@ export function Hero() {
           </button>
           <button
             onClick={scrollToPortfolio}
-            className="btn-secondary w-full px-10 py-5 text-base rounded-2xl transition-all duration-300 group flex items-center justify-center gap-2.5"
+            className="btn-secondary w-full px-8 py-4 text-base rounded-2xl transition-all duration-300 group flex items-center justify-center gap-2.5"
           >
             <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 transition-colors">
               <Play size={12} className="ml-0.5" fill="currentColor" />
@@ -301,7 +301,7 @@ export function Hero() {
         <motion.div
           ref={inViewRef}
           variants={itemVariants}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-white/[0.08] w-full max-w-3xl mb-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/[0.08] w-full max-w-3xl mb-8"
         >
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center gap-2">
@@ -318,14 +318,14 @@ export function Hero() {
         {/* Tech logos row */}
         <motion.div
           variants={itemVariants}
-          className="flex items-center gap-3 flex-wrap justify-center"
+          className="flex items-center gap-4 flex-wrap justify-center"
         >
           <span className="text-xs text-white/25 mr-1 font-medium">Built with</span>
           {["Next.js", "React", "Node.js", "AWS", "OpenAI", "Three.js"].map(
             (tech) => (
               <span
                 key={tech}
-                className="px-4 py-1.5 rounded-full text-xs font-semibold text-white/40 border border-white/[0.08] bg-white/[0.03] hover:text-white/70 hover:border-white/20 transition-all duration-300"
+                className="px-4 py-2 rounded-full text-xs font-semibold text-white/40 border border-white/[0.08] bg-white/[0.03] hover:text-white/70 hover:border-white/20 transition-all duration-300"
               >
                 {tech}
               </span>

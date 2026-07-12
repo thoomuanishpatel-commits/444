@@ -35,11 +35,11 @@ export function TrustedBy() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="trusted-by" className="section-padding-compact relative overflow-hidden border-y border-white/[0.05]">
+    <section id="trusted-by" className="py-12 md:py-16 relative overflow-hidden border-y border-white/[0.05]">
       {/* Subtle gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-white/[0.01] to-black pointer-events-none z-10" />
 
-      <div className="container-custom mb-6 sm:mb-8" ref={ref}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-8" ref={ref}>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
