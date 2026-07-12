@@ -43,7 +43,7 @@ export function Industries() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto"
+            className="body-lg max-w-2xl mx-auto text-white/50"
           >
             From startups to enterprises, from hospitals to hotels — we&apos;ve built
             digital solutions for virtually every sector.
@@ -126,7 +126,7 @@ export function Industries() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-2xl sm:rounded-3xl p-8 lg:p-12 text-center"
+          className="relative overflow-hidden rounded-[24px] p-8 md:p-10 text-center"
           style={{
             background:
               "linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(124,58,237,0.08) 50%, rgba(6,182,212,0.05) 100%)",
@@ -135,7 +135,7 @@ export function Industries() {
         >
           {/* Background glow */}
           <div
-            className="absolute inset-0 rounded-3xl pointer-events-none"
+            className="absolute inset-0 rounded-[24px] pointer-events-none"
             style={{
               background:
                 "radial-gradient(ellipse at 50% 50%, rgba(14,165,233,0.05) 0%, transparent 70%)",

@@ -28,7 +28,7 @@ export function Testimonials() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="text-left max-w-3xl mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,7 +50,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-xl mx-auto"
+            className="body-lg text-white/50"
           >
             Don&apos;t take our word for it. Here&apos;s what our clients say after working
             with AARIVON.

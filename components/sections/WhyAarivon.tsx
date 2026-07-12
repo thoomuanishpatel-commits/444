@@ -101,7 +101,7 @@ export function WhyAarivon() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto"
+            className="body-lg max-w-2xl mx-auto text-white/50"
           >
             We&apos;re not just another agency. We&apos;re your strategic technology
             partner — obsessed with quality, driven by results, committed to your
@@ -125,34 +125,37 @@ export function WhyAarivon() {
                 transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="relative group"
               >
-                <div className="glass rounded-2xl sm:rounded-3xl p-6 lg:p-8 h-full border border-white/[0.06] hover:border-white/10 transition-all duration-300 hover:transform hover:-translate-y-1">
+                <div className="glass rounded-[24px] p-8 md:p-10 h-full flex flex-col justify-between items-start border border-white/[0.06] hover:border-white/10 transition-all duration-300 hover:transform hover:-translate-y-1">
                   {/* Glow */}
                   <div
-                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    className="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(ellipse at 20% 0%, ${reason.color}12 0%, transparent 60%)`,
                     }}
                   />
 
-                  {/* Icon */}
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
-                    style={{
-                      background: `${reason.color}15`,
-                      border: `1px solid ${reason.color}25`,
-                    }}
-                  >
-                    <Icon size={22} style={{ color: reason.color }} />
-                  </div>
+                  {/* Top content */}
+                  <div>
+                    {/* Icon */}
+                    <div
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6"
+                      style={{
+                        background: `${reason.color}15`,
+                        border: `1px solid ${reason.color}25`,
+                      }}
+                    >
+                      <Icon size={22} style={{ color: reason.color }} />
+                    </div>
 
-                  <h3 className="text-white font-bold text-xl mb-3">{reason.title}</h3>
-                  <p className="text-white/45 text-sm leading-relaxed mb-6">
-                    {reason.description}
-                  </p>
+                    <h3 className="text-white font-bold text-xl mb-3">{reason.title}</h3>
+                    <p className="text-white/45 text-sm leading-relaxed mb-8">
+                      {reason.description}
+                    </p>
+                  </div>
 
                   {/* Stat */}
                   <div
-                    className="inline-flex items-baseline gap-2 px-4 py-2 rounded-xl"
+                    className="inline-flex items-baseline gap-2 px-4 py-2 rounded-xl mt-auto"
                     style={{
                       background: `${reason.color}10`,
                       border: `1px solid ${reason.color}20`,
@@ -183,7 +186,7 @@ export function WhyAarivon() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="gradient-border lg:col-span-6"
           >
-            <div className="glass-strong rounded-2xl sm:rounded-3xl p-6 lg:p-8">
+            <div className="glass-strong rounded-[24px] p-8 md:p-10">
               <div className="flex items-center gap-4 mb-8">
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-white text-base"
@@ -219,16 +222,15 @@ export function WhyAarivon() {
             </div>
           </motion.div>
 
-          {/* Text */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col gap-8 lg:col-span-6"
+            className="flex flex-col gap-8 lg:col-span-6 items-center"
           >
-            <div>
-              <div className="flex items-center gap-2 mb-4">
+            <div className="text-center w-full">
+              <div className="flex items-center justify-center gap-2 mb-4">
                 <Star size={16} className="text-yellow-400" fill="currentColor" />
                 <Star size={16} className="text-yellow-400" fill="currentColor" />
                 <Star size={16} className="text-yellow-400" fill="currentColor" />
@@ -236,25 +238,25 @@ export function WhyAarivon() {
                 <Star size={16} className="text-yellow-400" fill="currentColor" />
                 <span className="text-sm text-white/40 ml-1 font-medium">5.0 from 500+ reviews</span>
               </div>
-              <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+              <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-6 leading-tight tracking-tight text-center">
                 The Agency That Thinks Like a{" "}
                 <span className="text-gradient">Tech Company</span>
               </h3>
-              <p className="text-white/50 leading-relaxed text-sm max-w-xl">
+              <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto text-center">
                 Most agencies deliver pretty pictures. We deliver strategic digital
                 infrastructure. Every decision we make is backed by data, aligned
                 with your business goals, and built to scale.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-8 w-full">
               {[
                 { value: "500+", label: "Happy Clients" },
                 { value: "6+", label: "Years" },
                 { value: "30+", label: "Countries" },
                 { value: "99%", label: "Satisfaction" },
               ].map((s, i) => (
-                <div key={i} className="glass rounded-[24px] p-6 lg:p-8 text-center border border-white/[0.06] transition-all duration-300 hover:border-white/12 hover:transform hover:-translate-y-1 hover:shadow-premium">
+                <div key={i} className="glass rounded-[24px] p-6 md:p-8 text-center flex flex-col items-center border border-white/[0.06] transition-all duration-300 hover:border-white/12 hover:transform hover:-translate-y-1 hover:shadow-premium">
                   <p className="text-2xl lg:text-3xl font-black text-gradient tracking-tight">{s.value}</p>
                   <p className="text-xs text-white/40 mt-1 font-medium">{s.label}</p>
                 </div>
@@ -263,7 +265,7 @@ export function WhyAarivon() {
 
             <button
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="btn-primary self-start text-sm"
+              className="btn-primary self-center text-sm"
             >
               <span>Work With Us</span>
             </button>

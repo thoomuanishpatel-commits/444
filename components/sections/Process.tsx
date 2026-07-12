@@ -111,7 +111,7 @@ export function Process() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto"
+            className="body-lg max-w-2xl mx-auto text-white/50"
           >
             A proven 6-step process refined over 6 years and 800+ projects. Transparent,
             predictable, and built for results.
@@ -162,7 +162,7 @@ export function Process() {
 
                   {/* Left content */}
                   <div className={`${isEven ? "md:text-right md:pr-16" : "md:col-start-2 md:pl-16"}`}>
-                    <div className="glass rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/[0.06] hover:border-white/12 hover:transform hover:-translate-y-1 transition-all duration-300 group relative shadow-premium">
+                    <div className="glass rounded-[24px] p-8 md:p-10 border border-white/[0.06] hover:border-white/12 hover:transform hover:-translate-y-1 transition-all duration-300 group relative shadow-premium">
                       {/* Glow */}
                       <div
                         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"

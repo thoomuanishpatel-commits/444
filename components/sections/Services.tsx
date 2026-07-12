@@ -135,7 +135,7 @@ function ServiceCard({
           ? `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 35px ${service.glowColor}25`
           : "none",
       }}
-      className="perspective-card group relative rounded-[20px] sm:rounded-[24px] p-6 lg:p-8 h-full min-h-[320px] sm:min-h-[360px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
+      className="perspective-card group relative rounded-[24px] p-8 md:p-10 h-full min-h-[380px] sm:min-h-[420px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden"
       onClick={onOpen}
     >
       {/* Hover glow */}
@@ -150,14 +150,14 @@ function ServiceCard({
       <div>
         {/* Icon */}
         <div
-          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-7 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110`}
+          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110`}
           style={{ boxShadow: `0 0 25px ${service.glowColor}` }}
         >
           {getServiceIcon(service.id)}
         </div>
 
         {/* Content */}
-        <h3 className="font-bold text-white text-xl mb-4 group-hover:text-gradient transition-all duration-300 tracking-tight">
+        <h3 className="font-bold text-white text-xl mb-5 group-hover:text-gradient transition-all duration-300 tracking-tight">
           {service.title}
         </h3>
         <p className="text-sm text-white/50 leading-relaxed">
@@ -166,7 +166,7 @@ function ServiceCard({
       </div>
 
       {/* Bottom Half / Stat */}
-      <div className="flex items-center justify-between pt-6 border-t border-white/[0.06] mt-8">
+      <div className="flex items-center justify-between pt-6 border-t border-white/[0.06] mt-10">
         <span className="text-xs text-white/40">
           <span className="text-white/85 font-semibold">{service.stats.value}</span>{" "}
           {service.stats.label}
@@ -303,7 +303,7 @@ export function Services() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div ref={ref} className="text-center mb-16">
+        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -324,7 +324,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-white/60 text-lg md:text-[21px] max-w-[700px] mx-auto leading-relaxed md:leading-[1.8]"
+            className="text-white/60 text-lg md:text-[21px] max-w-2xl mx-auto leading-relaxed md:leading-[1.8]"
           >
             From concept to deployment — we cover every digital touchpoint your
             business needs to win in today&apos;s competitive landscape.

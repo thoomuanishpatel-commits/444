@@ -171,7 +171,7 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto"
+            className="body-lg max-w-2xl mx-auto text-white/50"
           >
             No hidden fees. No surprises. Just honest pricing for world-class work. All plans
             include free consultation and project kickoff within 48 hours.
@@ -234,9 +234,9 @@ export function Pricing() {
           transition={{ duration: 0.7 }}
           className="mt-16 sm:mt-20 lg:mt-24 text-center"
         >
-          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-6 lg:gap-8 rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/[0.08] max-w-3xl mx-auto">
+          <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-6 lg:gap-8 rounded-[24px] p-8 md:p-10 border border-white/[0.08] max-w-3xl mx-auto">
             <div className="text-3xl">💬</div>
-            <div className="flex-1 text-left">
+            <div className="flex-1 text-center sm:text-left">
               <p className="font-bold text-white text-base">Need a custom solution?</p>
               <p className="text-sm text-white/40 leading-relaxed mt-1">
                 Enterprise projects, SaaS platforms, or complex builds — we&apos;ll craft a

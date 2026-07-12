@@ -558,16 +558,16 @@ a, button, [role="button"] {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 1.5rem;
-  padding: 1.25rem;       /* 20px — mobile */
+  padding: 2rem;       /* 32px — mobile */
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 @media (min-width: 640px) {
-  .pricing-card { padding: 1.75rem; border-radius: 2rem; }  /* 28px */
+  .pricing-card { padding: 2.25rem; border-radius: 2rem; }  /* 36px */
 }
 @media (min-width: 1024px) {
-  .pricing-card { padding: 2.5rem; }  /* 40px */
+  .pricing-card { padding: 3rem; }  /* 48px */
 }
 .pricing-card:hover {
   border-color: rgba(14, 165, 233, 0.2);
@@ -618,14 +618,14 @@ a, button, [role="button"] {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 1.5rem;
-  padding: 1.25rem;       /* 20px — mobile */
+  padding: 2rem;       /* 32px — mobile */
   transition: all 0.3s ease;
 }
 @media (min-width: 640px) {
-  .testimonial-card { padding: 1.75rem; border-radius: 2rem; }  /* 28px */
+  .testimonial-card { padding: 2.25rem; border-radius: 2rem; }  /* 36px */
 }
 @media (min-width: 1024px) {
-  .testimonial-card { padding: 2.5rem; }  /* 40px */
+  .testimonial-card { padding: 3rem; }  /* 48px */
 }
 .testimonial-card:hover {
   border-color: rgba(14,165,233,0.15);

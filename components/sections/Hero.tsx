@@ -227,7 +227,7 @@ export function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center grid grid-cols-1 justify-items-center pt-32 pb-24 md:pt-40 md:pb-32"
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center pt-32 pb-24 md:pt-40 md:pb-32"
       >
         {/* Top badge */}
         <motion.div
@@ -242,13 +242,13 @@ export function Hero() {
         {/* Main Headline */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-[80px] font-black text-white max-w-5xl mx-auto leading-[1.1] tracking-tighter mb-8"
+          className="text-5xl md:text-7xl lg:text-[80px] font-black text-white max-w-5xl mx-auto leading-[1.1] tracking-tighter mb-8 text-center"
         >
           We Build{" "}
           <span className="text-gradient-animated">Digital Empires</span>
           <br />
           That Dominate{" "}
-          <span className="relative inline-block">
+          <span className="relative inline-block text-center">
             The Future
             <motion.span
               className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
@@ -265,7 +265,7 @@ export function Hero() {
         {/* Subheadline */}
         <motion.p
           variants={itemVariants}
-          className="body-lg max-w-[700px] mb-12 leading-[1.8] text-white/55"
+          className="body-lg max-w-[700px] mb-12 leading-[1.8] text-white/55 text-center mx-auto"
         >
           AARIVON is a premium digital agency crafting world-class websites, mobile apps,
           AI solutions, and brand identities for companies that refuse to settle for ordinary.

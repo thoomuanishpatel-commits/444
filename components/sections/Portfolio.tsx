@@ -149,7 +149,7 @@ function PortfolioCard({
         </div>
 
         {/* Content */}
-        <div className="p-6 lg:p-8">
+        <div className="p-8 md:p-10">
           <div className="flex items-start justify-between gap-3 mb-4">
             <div>
               <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 inline-block mb-3">
@@ -251,7 +251,7 @@ export function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto"
+            className="body-lg max-w-2xl mx-auto text-white/50"
           >
             Real projects, real results. Explore how we&apos;ve transformed businesses
             across industries with premium digital solutions.
