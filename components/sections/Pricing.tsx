@@ -150,55 +150,59 @@ export function Pricing() {
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-flex section-label mb-4"
-          >
-            Transparent Pricing
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6 text-center"
-          >
-            Premium Quality,{" "}
-            <span className="text-gradient">Fair Pricing</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
-          >
-            No hidden fees. No surprises. Just honest pricing for world-class work. All plans
-            include free consultation and project kickoff within 48 hours.
-          </motion.p>
+        <div className="max-w-3xl mb-16" style={{ marginLeft: "auto", marginRight: "auto" }}>
+          <div ref={ref} className="flex flex-col items-center text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-flex section-label mb-4"
+            >
+              Transparent Pricing
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="heading-lg text-white mb-6 text-center"
+              style={{ textAlign: "center", width: "100%" }}
+            >
+              Premium Quality,{" "}
+              <span className="text-gradient">Fair Pricing</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
+              style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+            >
+              No hidden fees. No surprises. Just honest pricing for world-class work. All plans
+              include free consultation and project kickoff within 48 hours.
+            </motion.p>
 
-          {/* Tab switcher */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex mt-10 glass rounded-xl p-1 border border-white/[0.08]"
-          >
-            {(["website", "app"] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
-                  activeTab === tab
-                    ? "bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-glow-blue"
-                    : "text-white/40 hover:text-white/70"
-                }`}
-              >
-                {tab === "website" ? "🌐 Website Pricing" : "📱 App Pricing"}
-              </button>
-            ))}
-          </motion.div>
+            {/* Tab switcher */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="inline-flex mt-10 glass rounded-xl p-1 border border-white/[0.08]"
+            >
+              {(["website", "app"] as const).map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                    activeTab === tab
+                      ? "bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-glow-blue"
+                      : "text-white/40 hover:text-white/70"
+                  }`}
+                >
+                  {tab === "website" ? "🌐 Website Pricing" : "📱 App Pricing"}
+                </button>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
         {/* Spacer */}

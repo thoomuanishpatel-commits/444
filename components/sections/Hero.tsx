@@ -244,6 +244,7 @@ export function Hero() {
           <motion.h1
             variants={itemVariants}
             className="font-display text-5xl md:text-7xl lg:text-[5.25rem] font-black text-white max-w-4xl mx-auto leading-[1.05] tracking-tight mb-6 text-center"
+            style={{ textAlign: "center", width: "100%", marginLeft: "auto", marginRight: "auto" }}
           >
             We Build{" "}
             <span className="text-gradient-animated">Digital Empires</span>
@@ -264,6 +265,7 @@ export function Hero() {
           <motion.p
             variants={itemVariants}
             className="body-lg max-w-2xl mb-8 leading-[1.8] text-white/55 text-center mx-auto"
+            style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
           >
             AARIVON is a premium digital agency crafting world-class websites, mobile apps,
             AI solutions, and brand identities for companies that refuse to settle for ordinary.

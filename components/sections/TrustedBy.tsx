@@ -53,6 +53,7 @@ export function TrustedBy() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             className="text-center text-xs text-white/35 uppercase tracking-[0.25em] font-semibold"
+            style={{ textAlign: "center" }}
           >
             Trusted by Industry Leaders Worldwide
           </motion.p>

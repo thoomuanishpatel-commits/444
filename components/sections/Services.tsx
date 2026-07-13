@@ -305,32 +305,36 @@ export function Services() {
 
       <Container className="relative z-10">
         {/* Header */}
-        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-flex section-label mb-4"
-          >
-            What We Do
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6 text-center"
-          >
-            Services That <span className="text-gradient">Drive Results</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto mt-6 text-center"
-          >
-            From concept to deployment — we cover every digital touchpoint your
-            business needs to win in today&apos;s competitive landscape.
-          </motion.p>
+        <div className="max-w-3xl mb-12" style={{ marginLeft: "auto", marginRight: "auto" }}>
+          <div ref={ref} className="flex flex-col items-center text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-flex section-label mb-4"
+            >
+              What We Do
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="heading-lg text-white mb-6 text-center"
+              style={{ textAlign: "center", width: "100%" }}
+            >
+              Services That <span className="text-gradient">Drive Results</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="body-lg max-w-2xl mx-auto mt-6 text-center"
+              style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+            >
+              From concept to deployment — we cover every digital touchpoint your
+              business needs to win in today&apos;s competitive landscape.
+            </motion.p>
+          </div>
         </div>
 
         {/* Services Grid */}
