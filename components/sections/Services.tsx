@@ -134,12 +134,12 @@ function ServiceCard({
           ? `0 20px 45px rgba(0, 0, 0, 0.45), 0 0 30px ${service.glowColor}20`
           : "none",
       }}
-      className="perspective-card group relative rounded-[20px] p-6 md:p-8 h-full min-h-[260px] md:min-h-[290px] flex flex-col justify-between items-center text-center transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden shadow-premium"
+      className="perspective-card group relative glass rounded-3xl p-6 md:p-8 h-full min-h-[260px] md:min-h-[290px] flex flex-col justify-between items-center text-center cursor-pointer overflow-hidden shadow-premium"
       onClick={onOpen}
     >
       {/* Hover glow */}
       <div
-        className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
           background: `radial-gradient(ellipse at 50% 0%, ${service.glowColor}20 0%, transparent 70%)`,
         }}
@@ -318,7 +318,7 @@ export function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-tight text-center"
+            className="heading-lg text-white mb-6 text-center"
           >
             Services That <span className="text-gradient">Drive Results</span>
           </motion.h2>
@@ -326,7 +326,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mt-6 text-center"
+            className="body-lg max-w-2xl mx-auto mt-6 text-center"
           >
             From concept to deployment — we cover every digital touchpoint your
             business needs to win in today&apos;s competitive landscape.

@@ -71,11 +71,7 @@ export function Industries() {
               className="group relative"
             >
               <div
-                className="relative rounded-2xl sm:rounded-3xl p-4 lg:p-6 flex flex-col items-center text-center gap-4 cursor-pointer transition-all duration-300 h-full"
-                style={{
-                  background: "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                }}
+                className="relative rounded-3xl p-4 lg:p-6 flex flex-col items-center text-center gap-4 cursor-pointer glass h-full"
               >
                 {/* Hover glow */}
                 <div

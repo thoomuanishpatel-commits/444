@@ -161,17 +161,21 @@ h1, h2, h3, h4 {
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .glass-strong {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .glass-light {
@@ -179,6 +183,7 @@ h1, h2, h3, h4 {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
   }
 
   .glow-blue {
@@ -568,23 +573,23 @@ h1, h2, h3, h4 {
 /* ─── Pricing ─── */
 .pricing-card {
   background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.5rem; /* Standard 24px */
   padding: 2rem;       /* 32px — mobile */
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 @media (min-width: 640px) {
-  .pricing-card { padding: 2.25rem; border-radius: 2rem; }  /* 36px */
+  .pricing-card { padding: 2.25rem; }  /* 36px */
 }
 @media (min-width: 1024px) {
   .pricing-card { padding: 3rem; }  /* 48px */
 }
 .pricing-card:hover {
-  border-color: rgba(14, 165, 233, 0.2);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 40px rgba(14,165,233,0.05);
+  border-color: rgba(14, 165, 233, 0.35);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 45px rgba(14,165,233,0.1);
 }
 .pricing-card.featured {
   background: rgba(14, 165, 233, 0.05);
@@ -628,20 +633,21 @@ h1, h2, h3, h4 {
 /* ─── Testimonial cards ─── */
 .testimonial-card {
   background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1.5rem; /* Standard 24px */
   padding: 2rem;       /* 32px — mobile */
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @media (min-width: 640px) {
-  .testimonial-card { padding: 2.25rem; border-radius: 2rem; }  /* 36px */
+  .testimonial-card { padding: 2.25rem; }  /* 36px */
 }
 @media (min-width: 1024px) {
   .testimonial-card { padding: 3rem; }  /* 48px */
 }
 .testimonial-card:hover {
-  border-color: rgba(14,165,233,0.15);
-  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.3); /* Purple aura matching purple glow */
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(124, 58, 237, 0.05);
 }
 
 /* ─── Light mode overrides ─── */

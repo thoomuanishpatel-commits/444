@@ -53,11 +53,11 @@ function PortfolioCard({
           rotateX,
           rotateY,
           transformStyle: "preserve-3d",
-          background: hovered ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.02)",
-          borderColor: hovered ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.06)",
+          background: hovered ? "rgba(255, 255, 255, 0.04)" : "rgba(255, 255, 255, 0.02)",
+          borderColor: hovered ? "rgba(255, 255, 255, 0.18)" : "rgba(255, 255, 255, 0.08)",
           boxShadow: hovered ? `0 30px 60px rgba(0, 0, 0, 0.4), 0 0 45px ${item.color}20` : "none",
         }}
-        className="relative rounded-3xl overflow-hidden border transition-colors duration-300"
+        className="relative rounded-3xl overflow-hidden glass"
       >
         {/* Mock browser frame */}
         <div

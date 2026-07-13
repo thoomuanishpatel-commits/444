@@ -121,13 +121,13 @@ export function WhyAarivon() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
+                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } }}
                 className="relative group cursor-pointer"
               >
-                <div className="glass rounded-[20px] p-6 md:p-8 h-full flex flex-col justify-between items-center text-center border border-white/12 group-hover:border-white/25 transition-all duration-300 shadow-premium relative overflow-hidden">
+                <div className="glass rounded-3xl p-6 md:p-8 h-full flex flex-col justify-between items-center text-center group-hover:border-white/25 shadow-premium relative overflow-hidden">
                   {/* Glow */}
                   <div
-                    className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
                       background: `radial-gradient(ellipse at 50% 0%, ${reason.color}12 0%, transparent 60%)`,
                     }}

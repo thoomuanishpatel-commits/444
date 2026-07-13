@@ -53,7 +53,7 @@ export function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="glass-strong rounded-2xl sm:rounded-3xl p-6 lg:p-8 border border-white/10"
+              className="glass-strong rounded-3xl p-6 lg:p-8"
             >
               <p className="text-base font-bold text-white mb-3">
                 Still have questions?
