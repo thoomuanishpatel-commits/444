@@ -233,8 +233,8 @@ export function WhyAarivon() {
             className="w-full max-w-3xl mb-12 border border-white/10 rounded-[24px] overflow-hidden"
             style={{ marginLeft: "auto", marginRight: "auto" }}
           >
-            <div className="glass-strong p-8 md:p-10 text-center flex flex-col items-center">
-              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 w-full">
+            <div className="glass-strong p-8 md:p-10 text-center flex flex-col items-center w-full">
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 w-full max-w-2xl mx-auto" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white text-sm flex-shrink-0"
                   style={{ background: "linear-gradient(135deg, #0ea5e9, #7c3aed)" }}
@@ -251,7 +251,7 @@ export function WhyAarivon() {
                   </span>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left w-full max-w-2xl mx-auto" style={{ marginLeft: "auto", marginRight: "auto" }}>
                 {comparisonPoints.map((point, i) => (
                   <motion.div
                     key={i}
