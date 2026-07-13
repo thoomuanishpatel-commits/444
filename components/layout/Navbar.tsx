@@ -219,16 +219,16 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[899] bg-black/95 backdrop-blur-xl flex flex-col"
+            className="fixed inset-0 z-[899] bg-white/95 dark:bg-black/95 backdrop-blur-xl flex flex-col"
           >
             {/* Close button */}
             <div className="flex items-center justify-between p-6">
-              <span className="font-black text-xl tracking-tight text-white">
+              <span className="font-black text-xl tracking-tight text-slate-900 dark:text-white">
                 AARIVON
               </span>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="w-10 h-10 rounded-lg flex items-center justify-center glass text-white/70"
+                className="w-10 h-10 rounded-lg flex items-center justify-center glass text-slate-700 dark:text-white/70"
                 aria-label="Close menu"
               >
                 <X size={18} />
@@ -243,12 +243,12 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => scrollTo(link.href)}
-                  className="flex items-center justify-between py-4 border-b border-white/[0.06] text-left group"
+                  className="flex items-center justify-between py-4 border-b border-slate-200 dark:border-white/[0.06] text-left group"
                 >
-                  <span className="text-2xl font-bold text-white/80 group-hover:text-white transition-colors">
+                  <span className="text-2xl font-bold text-slate-800 dark:text-white/80 group-hover:text-slate-950 group-hover:dark:text-white transition-colors">
                     {link.label}
                   </span>
-                  <ArrowUpRight size={20} className="text-white/20 group-hover:text-white/50 transition-colors" />
+                  <ArrowUpRight size={20} className="text-slate-400 dark:text-white/20 group-hover:text-slate-700 group-hover:dark:text-white/50 transition-colors" />
                 </motion.button>
               ))}
             </div>

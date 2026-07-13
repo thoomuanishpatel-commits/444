@@ -24,7 +24,7 @@ export function ClientPageWrapper() {
   return (
     <SmoothScroll>
       <Navbar />
-      <main className="relative z-[1] overflow-hidden bg-dark-surface">
+      <main className="relative z-[1] overflow-hidden bg-transparent dark:bg-dark-surface">
         {/* Ambient page glow */}
         <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
           <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] rounded-full bg-brand-blue/[0.04] blur-[120px]" />

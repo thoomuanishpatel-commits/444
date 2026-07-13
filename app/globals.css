@@ -651,20 +651,311 @@ h1, h2, h3, h4 {
 }
 
 /* ─── Light mode overrides ─── */
+.light {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 3%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3%;
+  --primary: 221 83% 53%; /* #2563EB */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 0 0% 94%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 262 83% 58%; /* #7C3AED */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 213 27% 93%; /* #E7ECF2 */
+  --input: 213 27% 93%;
+  --ring: 221 83% 53%;
+
+  /* Brand Colors */
+  --brand-blue: #2563EB;
+  --brand-purple: #7C3AED;
+  --brand-cyan: #06B6D4;
+  --brand-indigo: #6366f1;
+
+  /* Gradients */
+  --gradient-1: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  --gradient-2: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+  --gradient-3: linear-gradient(90deg, #2563EB, #7C3AED, #06B6D4);
+}
+
 .light body {
-  background: #ffffff;
-  color: #0a0a0a;
+  background: #FAFBFD;
+  color: #6B7280;
 }
+
+.light .grid-dots {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px) !important;
+}
+
+/* Typography Overrides */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light .heading-lg,
+.light .heading-md,
+.light .heading-sm,
+.light .font-display:not(.bg-gradient-to-br *):not(.w-9 *):not(.w-10 *):not(.w-12 *):not(.w-14 *):not(footer *):not(footer),
+.light .text-white:not(.btn-primary *):not(.btn-secondary *):not(.bg-gradient-to-br *):not(.w-9 *):not(.w-10 *):not(.w-12 *):not(.w-14 *):not(.section-label *):not(.section-card *):not(footer *):not(footer) {
+  color: #111827 !important;
+}
+
+.light p,
+.light span:not(.text-gradient):not(.text-gradient-animated):not(.section-label):not(.btn-primary *):not(.btn-secondary *):not(.bg-gradient-to-br *):not(.w-9 *):not(.w-10 *):not(.w-12 *):not(.w-14 *):not(.section-label *):not(footer *):not(footer),
+.light .text-white\/80:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/70:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/65:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/60:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/55:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/50:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/45:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/40:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .body-lg {
+  color: #6B7280 !important;
+}
+
+.light .text-white\/35:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/30:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/25:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer),
+.light .text-white\/20:not(.btn-primary *):not(.btn-secondary *):not(footer *):not(footer) {
+  color: #94A3B8 !important;
+}
+
+/* Gradients Overrides */
+.light .text-gradient {
+  background: linear-gradient(90deg, #2563EB, #7C3AED, #06B6D4) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.light .text-gradient-animated {
+  background: linear-gradient(90deg, #2563EB, #7C3AED, #06B6D4) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Floating Premium Cards */
 .light .glass {
-  background: rgba(255,255,255,0.7);
-  border-color: rgba(0,0,0,0.08);
+  background: #FFFFFF !important;
+  border-color: #E7ECF2 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
-.light .section-label {
-  background: rgba(14,165,233,0.08);
-  border-color: rgba(14,165,233,0.2);
+.light .glass:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.10) !important;
+  border-color: rgba(37, 99, 235, 0.15) !important;
+}
+.light .glass-strong {
+  background: #FFFFFF !important;
+  border-color: #E7ECF2 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.light .glass-strong:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.10) !important;
+  border-color: rgba(37, 99, 235, 0.15) !important;
+}
+
+/* Navbar overrides */
+.light nav {
+  background: transparent !important;
+}
+.light nav.py-4 {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid #E5E7EB !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02) !important;
+}
+.light .nav-link {
+  color: #374151 !important;
+  transition: color 0.2s ease !important;
+}
+.light .nav-link:hover {
+  color: #2563EB !important;
+}
+.light .nav-link.active {
+  color: #111827 !important;
+}
+
+/* Primary & Secondary Buttons */
+.light .btn-primary {
+  background: linear-gradient(135deg, #2563EB, #7C3AED) !important;
+  color: #FFFFFF !important;
+  border-radius: 16px !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.light .btn-primary:hover {
+  transform: scale(1.03) !important;
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.35) !important;
+}
+.light .btn-secondary {
+  background: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  color: #111827 !important;
+  border-radius: 16px !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease !important;
+}
+.light .btn-secondary:hover {
+  background: #F3F6FB !important;
+}
+
+/* Form Controls */
+.light input,
+.light textarea,
+.light select {
+  background: #FFFFFF !important;
+  color: #111827 !important;
+  border-color: #CBD5E1 !important;
+}
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  border-color: #2563EB !important;
+}
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #94A3B8 !important;
+}
+.light label {
+  color: #6B7280 !important;
+}
+
+/* Services section cards */
+.light [id="services"] button.border-transparent:hover {
+  background-color: #F3F6FF !important;
+  border-color: #2563EB !important;
+}
+.light [id="services"] button.bg-gradient-to-r {
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%) !important;
+  border-color: rgba(37, 99, 235, 0.25) !important;
+}
+.light [id="services"] button.bg-gradient-to-r * {
+  color: #111827 !important;
+}
+
+/* Portfolio Browser Mockup */
+.light [id="portfolio"] .glass .absolute.top-0 {
+  background-color: #EEF2F7 !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+.light [id="portfolio"] .glass .absolute.top-0 .w-2\.5 {
+  opacity: 0.8 !important;
+}
+.light [id="portfolio"] .glass .absolute.top-0 .flex-1 {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+.light [id="portfolio"] .glass .absolute.top-0 span {
+  color: #6B7280 !important;
+}
+.light [id="portfolio"] .glass .rounded-lg {
+  background-color: #FFFFFF !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Background effects opacity control */
+.light .pointer-events-none.fixed.inset-0 .bg-brand-blue\/\[0\.04\] {
+  background-color: rgba(37, 99, 235, 0.06) !important;
+}
+.light .pointer-events-none.fixed.inset-0 .bg-brand-purple\/\[0\.05\] {
+  background-color: rgba(124, 58, 237, 0.07) !important;
+}
+.light .pointer-events-none.fixed.inset-0 .bg-brand-cyan\/\[0\.04\] {
+  background-color: rgba(6, 182, 212, 0.06) !important;
+}
+
+/* FAQ Trigger style */
+.light .faq-trigger span.bg-white\/\[0\.03\] {
+  background-color: rgba(15, 23, 42, 0.03) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+.light .faq-trigger span.bg-brand-blue\/15 {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+  border-color: rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Services interactive simulator adjustments */
+.light [id="services"] .glass-strong {
+  background: #FFFFFF !important;
+  border-color: #E7ECF2 !important;
+  box-shadow: 0 12px 40px rgba(15,23,42,.06) !important;
+}
+.light [id="services"] .bg-\[\#0b0c10\]\/90 {
+  background-color: #FAFBFD !important;
+  border-color: #E7ECF2 !important;
+}
+.light [id="services"] .bg-zinc-950\/80 {
+  background-color: #FFFFFF !important;
+  border-color: #E7ECF2 !important;
+}
+.light [id="services"] .text-emerald-400 {
+  color: #059669 !important;
+}
+.light [id="services"] .text-blue-400 {
+  color: #2563EB !important;
+}
+.light [id="services"] .text-purple-400 {
+  color: #7C3AED !important;
+}
+.light [id="services"] .text-yellow-400 {
+  color: #D97706 !important;
+}
+.light [id="services"] .text-white\/40 {
+  color: #94A3B8 !important;
+}
+.light [id="services"] .text-white\/60 {
+  color: #6B7280 !important;
+}
+.light [id="services"] .border-white\/10 {
+  border-color: #E7ECF2 !important;
+}
+.light [id="services"] .bg-white\/\[0\.02\],
+.light [id="services"] .bg-white\/5 {
+  background-color: #F3F6FB !important;
+}
+
+/* Generic border & background variables */
+.light .border-white\/10 {
+  border-color: #E7ECF2 !important;
+}
+.light .border-white\/\[0\.08\] {
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+.light .border-white\/\[0\.06\] {
+  border-color: rgba(15, 23, 42, 0.04) !important;
+}
+.light .border-white\/\[0\.04\] {
+  border-color: rgba(15, 23, 42, 0.03) !important;
+}
+.light .bg-white\/\[0\.04\],
+.light .bg-white\/\[0\.03\] {
+  background-color: rgba(15, 23, 42, 0.03) !important;
+}
+.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+.light .bg-zinc-900 {
+  background-color: #F5F8FC !important;
+}
+.light .bg-zinc-950\/40 {
+  background-color: #F5F8FC !important;
+}
+.light .alt-bg {
+  background-color: #F8FAFC !important;
+  border-color: #E7ECF2 !important;
 }
 .light .aurora-bg::before {
-  opacity: 0.5;
+  opacity: 0.07;
 }
 
 /* Media queries handled inline via @apply */

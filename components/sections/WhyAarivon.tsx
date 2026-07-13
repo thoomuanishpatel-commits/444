@@ -12,7 +12,7 @@ const reasons = [
     title: "Premium Quality",
     description:
       "Every project is crafted with the same obsessive attention to detail that Apple applies to hardware. No shortcuts, no templates.",
-    color: "#0ea5e9",
+    color: "#2563eb",
     stat: { value: 99, suffix: "%", label: "Client Satisfaction" },
   },
   {
@@ -20,7 +20,7 @@ const reasons = [
     title: "Blazing Performance",
     description:
       "We engineer for speed. Lighthouse scores above 90, Core Web Vitals in the green, and sub-2s load times are our standard.",
-    color: "#f59e0b",
+    color: "#06b6d4",
     stat: { value: 95, suffix: "+", label: "Avg. Lighthouse Score" },
   },
   {
@@ -52,7 +52,7 @@ const reasons = [
     title: "ROI Focused",
     description:
       "We measure success by your growth. Every design decision, every line of code is optimized to maximize your business results.",
-    color: "#ec4899",
+    color: "#f97316",
     stat: { value: 10, suffix: "x", label: "Average ROI" },
   },
 ];
