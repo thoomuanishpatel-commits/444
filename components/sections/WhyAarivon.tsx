@@ -186,7 +186,7 @@ export function WhyAarivon() {
         <div className="h-16 sm:h-20 lg:h-24 pointer-events-none" />
 
         {/* Second Content Block - Perfectly aligned to center vertical grid */}
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-4xl" style={{ marginLeft: "auto", marginRight: "auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
           {/* Stars */}
           <div className="flex items-center justify-center gap-2 mb-6">
             <Star size={16} className="text-yellow-400" fill="currentColor" />
@@ -198,19 +198,19 @@ export function WhyAarivon() {
           </div>
 
           {/* Heading */}
-          <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight text-center">
+          <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight text-center" style={{ textAlign: "center", width: "100%" }}>
             The Agency That Thinks Like a <span className="text-gradient">Tech Company</span>
           </h3>
 
           {/* Paragraph */}
-          <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto mb-12 text-center mt-6">
+          <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto mb-12 text-center mt-6" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
             Most agencies deliver pretty pictures. We deliver strategic digital
             infrastructure. Every decision we make is backed by data, aligned
             with your business goals, and built to scale.
           </p>
 
           {/* Statistics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-16 justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-16 justify-items-center" style={{ marginLeft: "auto", marginRight: "auto" }}>
             {[
               { value: "500+", label: "Happy Clients" },
               { value: "6+", label: "Years" },
@@ -231,6 +231,7 @@ export function WhyAarivon() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="w-full max-w-3xl mb-12 border border-white/10 rounded-[24px] overflow-hidden"
+            style={{ marginLeft: "auto", marginRight: "auto" }}
           >
             <div className="glass-strong p-8 md:p-10 text-center flex flex-col items-center">
               <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 w-full">
