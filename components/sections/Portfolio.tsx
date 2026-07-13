@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { portfolioItems, portfolioCategories } from "@/data/portfolio";
-import { ArrowUpRight, ExternalLink, TrendingUp } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 
 function PortfolioCard({
@@ -150,30 +150,30 @@ function PortfolioCard({
         </div>
 
         {/* Content */}
-        <div className="p-8 md:p-10">
-          <div className="flex items-start justify-between gap-3 mb-4">
-            <div>
-              <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 inline-block mb-3">
-                {item.category}
-              </span>
-              <h3 className="font-bold text-white text-2xl group-hover:text-gradient transition-all duration-300 leading-snug tracking-tight">
-                {item.title}
-              </h3>
-            </div>
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-white/[0.08] group-hover:border-white/20 group-hover:bg-white/[0.04] transition-all duration-300"
-              style={{ background: `${item.color}10` }}
-            >
-              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: item.color }} />
-            </div>
+        <div className="p-8 md:p-10 text-center flex flex-col items-center relative">
+          {/* Absolute Arrow overlay */}
+          <div
+            className="absolute top-6 right-6 w-10 h-10 rounded-xl flex items-center justify-center border border-white/[0.08] group-hover:border-white/20 group-hover:bg-white/[0.04] transition-all duration-300 z-10"
+            style={{ background: `${item.color}10` }}
+          >
+            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" style={{ color: item.color }} />
           </div>
 
-          <p className="text-sm text-white/40 leading-relaxed mb-6 line-clamp-2">
+          <div className="flex flex-col items-center gap-3 mb-4 w-full">
+            <span className="px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white/[0.04] border border-white/[0.08] text-white/50 inline-block">
+              {item.category}
+            </span>
+            <h3 className="font-bold text-white text-2xl group-hover:text-gradient transition-all duration-300 leading-snug tracking-tight max-w-[85%]">
+              {item.title}
+            </h3>
+          </div>
+
+          <p className="text-sm text-white/40 leading-relaxed mb-6 line-clamp-2 max-w-[90%]">
             {item.description}
           </p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-6">
+          <div className="flex flex-wrap gap-1.5 mb-6 justify-center">
             {item.tags.map((tag) => (
               <span
                 key={tag}
@@ -218,7 +218,7 @@ export function Portfolio() {
       : portfolioItems.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="portfolio" className="relative overflow-hidden py-24">
+    <section id="portfolio" className="relative overflow-hidden section-padding">
       {/* Background */}
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
@@ -230,7 +230,7 @@ export function Portfolio() {
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -243,7 +243,7 @@ export function Portfolio() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6"
+            className="heading-lg text-white mb-6 text-center"
           >
             Award-Winning{" "}
             <span className="text-gradient">Case Studies</span>
@@ -252,7 +252,7 @@ export function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
           >
             Real projects, real results. Explore how we&apos;ve transformed businesses
             across industries with premium digital solutions.
@@ -301,7 +301,7 @@ export function Portfolio() {
           className="text-center mt-16 sm:mt-20 lg:mt-24"
         >
           <div className="glass-strong inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 border border-white/10 max-w-2xl mx-auto">
-            <div className="text-left flex-1">
+            <div className="text-center sm:text-left flex-1">
               <p className="text-white font-bold text-lg mb-1">Want results like these?</p>
               <p className="text-white/40 text-sm">Let&apos;s build your success story together</p>
             </div>

@@ -24,7 +24,13 @@ export function ClientPageWrapper() {
   return (
     <SmoothScroll>
       <Navbar />
-      <main className="relative overflow-hidden">
+      <main className="relative z-[1] overflow-hidden bg-dark-surface">
+        {/* Ambient page glow */}
+        <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden>
+          <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] rounded-full bg-brand-blue/[0.04] blur-[120px]" />
+          <div className="absolute top-[40%] -right-[10%] w-[50vw] h-[40vh] rounded-full bg-brand-purple/[0.05] blur-[100px]" />
+          <div className="absolute bottom-[10%] -left-[10%] w-[45vw] h-[35vh] rounded-full bg-brand-cyan/[0.04] blur-[100px]" />
+        </div>
         <Hero />
         <TrustedBy />
         <Services />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { services } from "@/data/services";
 import { Container } from "@/components/layout/Container";
@@ -59,7 +59,7 @@ function getServiceIcon(id: string) {
   }
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -69,25 +69,23 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1] as any,
+      ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
 function ServiceCard({
   service,
-  index,
   onOpen,
 }: {
   service: (typeof services)[0];
-  index: number;
   onOpen: () => void;
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -124,7 +122,7 @@ function ServiceCard({
       whileHover={{
         y: -8,
         scale: 1.02,
-        transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as any },
+        transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
       }}
       style={{
         rotateX,
@@ -136,7 +134,7 @@ function ServiceCard({
           ? `0 20px 45px rgba(0, 0, 0, 0.45), 0 0 30px ${service.glowColor}20`
           : "none",
       }}
-      className="perspective-card group relative rounded-[20px] p-6 md:p-8 h-full min-h-[260px] md:min-h-[290px] flex flex-col justify-between transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden shadow-premium"
+      className="perspective-card group relative rounded-[20px] p-6 md:p-8 h-full min-h-[260px] md:min-h-[290px] flex flex-col justify-between items-center text-center transition-all duration-500 border backdrop-blur-md cursor-pointer overflow-hidden shadow-premium"
       onClick={onOpen}
     >
       {/* Hover glow */}
@@ -148,10 +146,10 @@ function ServiceCard({
       />
 
       {/* Top Half */}
-      <div className="flex flex-col">
+      <div className="flex flex-col items-center">
         {/* Icon */}
         <div
-          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110`}
+          className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-white bg-gradient-to-br ${service.gradient} transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110 mx-auto`}
           style={{ boxShadow: `0 0 25px ${service.glowColor}` }}
         >
           {getServiceIcon(service.id)}
@@ -170,7 +168,7 @@ function ServiceCard({
       <div className="flex-grow min-h-[16px]" />
 
       {/* Bottom Half / Stat */}
-      <div className="flex items-center justify-between pt-5 border-t border-white/[0.08] mt-6">
+      <div className="flex items-center justify-between pt-5 border-t border-white/[0.08] mt-6 w-full">
         <span className="text-xs text-white/40">
           <span className="text-white/85 font-semibold">{service.stats.value}</span>{" "}
           {service.stats.label}
@@ -281,7 +279,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden py-24"
+      className="relative overflow-hidden section-padding"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -307,7 +305,7 @@ export function Services() {
 
       <Container className="relative z-10">
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-12">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -320,7 +318,7 @@ export function Services() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight"
+            className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-tight text-center"
           >
             Services That <span className="text-gradient">Drive Results</span>
           </motion.h2>
@@ -328,7 +326,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed mt-6 text-center"
           >
             From concept to deployment — we cover every digital touchpoint your
             business needs to win in today&apos;s competitive landscape.
@@ -343,11 +341,10 @@ export function Services() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <ServiceCard
               key={service.id}
               service={service}
-              index={index}
               onOpen={() => setSelected(service)}
             />
           ))}

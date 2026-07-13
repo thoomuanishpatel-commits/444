@@ -17,7 +17,7 @@ export function Testimonials() {
   const current = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative overflow-hidden py-24">
+    <section id="testimonials" className="relative overflow-hidden section-padding">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -29,7 +29,7 @@ export function Testimonials() {
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -42,7 +42,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6"
+            className="heading-lg text-white mb-6 text-center"
           >
             What Our Clients{" "}
             <span className="text-gradient">Say</span>
@@ -51,7 +51,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
           >
             Don&apos;t take our word for it. Here&apos;s what our clients say after working
             with AARIVON.
@@ -77,7 +77,7 @@ export function Testimonials() {
                   prev();
                 }
               }}
-              className="glass-strong rounded-3xl p-8 border border-white/10 relative overflow-hidden cursor-grab active:cursor-grabbing select-none"
+              className="glass-strong rounded-3xl p-8 border border-white/10 relative overflow-hidden cursor-grab active:cursor-grabbing select-none text-center flex flex-col items-center"
               style={{
                 boxShadow: "0 32px 64px rgba(0,0,0,0.4), 0 0 60px rgba(124,58,237,0.06)",
               }}
@@ -89,12 +89,12 @@ export function Testimonials() {
               />
 
               {/* Quote icon */}
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-brand-purple/10 border border-brand-purple/20 mb-6">
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-brand-purple/10 border border-brand-purple/20 mb-6 mx-auto">
                 <Quote size={20} className="text-brand-purple" />
               </div>
 
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-4 justify-center">
                 {[...Array(current.rating)].map((_, i) => (
                   <Star key={i} size={16} className="text-yellow-400" fill="currentColor" />
                 ))}
@@ -108,7 +108,7 @@ export function Testimonials() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 relative z-10"
+                  className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 relative z-10 text-center"
                 >
                   &ldquo;{current.text}&rdquo;
                 </motion.blockquote>
@@ -122,16 +122,16 @@ export function Testimonials() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
-                  className="flex items-center justify-between flex-wrap gap-4"
+                  className="flex flex-col items-center gap-4 w-full"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-center gap-3">
                     {/* Avatar */}
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-black text-lg">
                       {current.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-white">{current.name}</p>
-                      <p className="text-sm text-white/40">
+                      <p className="font-bold text-white text-center">{current.name}</p>
+                      <p className="text-sm text-white/40 text-center">
                         {current.role} · {current.company}
                       </p>
                     </div>
@@ -193,13 +193,13 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5 }}
-              className={`testimonial-card text-left p-6 md:p-8 transition-all duration-300 ${
+              className={`testimonial-card text-center flex flex-col items-center p-6 md:p-8 transition-all duration-300 ${
                 i === active
                   ? "border-brand-blue/25 bg-brand-blue/[0.04]"
                   : "hover:border-white/10"
               }`}
             >
-              <div className="flex gap-1 mb-3">
+              <div className="flex gap-1 mb-3 justify-center">
                 {[...Array(t.rating)].map((_, j) => (
                   <Star key={j} size={12} className="text-yellow-400" fill="currentColor" />
                 ))}
@@ -207,13 +207,13 @@ export function Testimonials() {
               <p className="text-sm text-white/50 leading-relaxed mb-4 line-clamp-3 font-medium">
                 &ldquo;{t.text}&rdquo;
               </p>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col items-center gap-2 mt-auto">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-blue to-brand-purple flex items-center justify-center text-white font-bold text-xs">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-white/70">{t.name}</p>
-                  <p className="text-[10px] text-white/30">{t.company}</p>
+                  <p className="text-xs font-semibold text-white/70 text-center">{t.name}</p>
+                  <p className="text-[10px] text-white/30 text-center">{t.company}</p>
                 </div>
               </div>
             </motion.button>

@@ -70,17 +70,17 @@ const comparisonPoints = [
 
 export function WhyAarivon() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  const { ref: statsRef, inView: statsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: statsRef } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="why-aarivon" className="relative overflow-hidden py-24 alt-bg">
+    <section id="why-aarivon" className="relative overflow-hidden section-padding alt-bg">
       {/* Background */}
       <div className="absolute inset-0 hero-glow pointer-events-none" />
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -93,7 +93,7 @@ export function WhyAarivon() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6"
+            className="heading-lg text-white mb-6 text-center"
           >
             The{" "}
             <span className="text-gradient">AARIVON Difference</span>
@@ -102,7 +102,7 @@ export function WhyAarivon() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
           >
             We&apos;re not just another agency. We&apos;re your strategic technology
             partner — obsessed with quality, driven by results, committed to your
@@ -124,17 +124,17 @@ export function WhyAarivon() {
                 whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.3, ease: "easeOut" } }}
                 className="relative group cursor-pointer"
               >
-                <div className="glass rounded-[20px] p-6 md:p-8 h-full flex flex-col justify-between items-start border border-white/12 group-hover:border-white/25 transition-all duration-300 shadow-premium relative overflow-hidden">
+                <div className="glass rounded-[20px] p-6 md:p-8 h-full flex flex-col justify-between items-center text-center border border-white/12 group-hover:border-white/25 transition-all duration-300 shadow-premium relative overflow-hidden">
                   {/* Glow */}
                   <div
                     className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                     style={{
-                      background: `radial-gradient(ellipse at 20% 0%, ${reason.color}12 0%, transparent 60%)`,
+                      background: `radial-gradient(ellipse at 50% 0%, ${reason.color}12 0%, transparent 60%)`,
                     }}
                   />
 
                   {/* Top content */}
-                  <div className="flex flex-col w-full relative z-10">
+                  <div className="flex flex-col items-center w-full relative z-10">
                     {/* Icon */}
                     <div
                       className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110"
@@ -178,10 +178,13 @@ export function WhyAarivon() {
           })}
         </div>
 
+        {/* Spacing between grid and second block */}
+        <div className="h-16 sm:h-20 lg:h-24 pointer-events-none" />
+
         {/* Second Content Block - Perfectly aligned to center vertical grid */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Stars */}
-          <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="flex items-center justify-center gap-2 mb-6">
             <Star size={16} className="text-yellow-400" fill="currentColor" />
             <Star size={16} className="text-yellow-400" fill="currentColor" />
             <Star size={16} className="text-yellow-400" fill="currentColor" />
@@ -196,7 +199,7 @@ export function WhyAarivon() {
           </h3>
 
           {/* Paragraph */}
-          <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto mb-12 text-center">
+          <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto mb-12 text-center mt-6">
             Most agencies deliver pretty pictures. We deliver strategic digital
             infrastructure. Every decision we make is backed by data, aligned
             with your business goals, and built to scale.
@@ -225,25 +228,25 @@ export function WhyAarivon() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="w-full max-w-3xl mb-12 border border-white/10 rounded-[24px] overflow-hidden"
           >
-            <div className="glass-strong p-8 md:p-10 text-left">
-              <div className="flex items-center gap-4 mb-8">
+            <div className="glass-strong p-8 md:p-10 text-center flex flex-col items-center">
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-8 w-full">
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white text-sm"
+                  className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white text-sm flex-shrink-0"
                   style={{ background: "linear-gradient(135deg, #0ea5e9, #7c3aed)" }}
                 >
                   A
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <p className="font-bold text-white text-base leading-none">AARIVON Advantage</p>
-                  <p className="text-xs text-white/40 mt-1">Why top companies choose our process</p>
+                  <p className="text-xs text-white/40 mt-1.5">Why top companies choose our process</p>
                 </div>
-                <div className="ml-auto">
+                <div className="sm:ml-auto">
                   <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     Recommended
                   </span>
                 </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-left w-full">
                 {comparisonPoints.map((point, i) => (
                   <motion.div
                     key={i}
@@ -268,6 +271,7 @@ export function WhyAarivon() {
           >
             <span>Work With Us</span>
           </button>
+          <div className="h-10 sm:h-12 lg:h-16 pointer-events-none" />
         </div>
       </Container>
     </section>

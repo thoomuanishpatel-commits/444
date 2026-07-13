@@ -81,7 +81,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24">
+    <section id="contact" className="relative overflow-hidden section-padding">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -93,7 +93,7 @@ export function Contact() {
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -106,7 +106,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6"
+            className="heading-lg text-white mb-6 text-center"
           >
             Let&apos;s Build Something{" "}
             <span className="text-gradient">Extraordinary</span>
@@ -115,7 +115,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
           >
             Tell us about your project. We&apos;ll get back to you within 24 hours
             with a free consultation and project estimate.

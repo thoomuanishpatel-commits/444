@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useRef } from "react";
 import { Container } from "@/components/layout/Container";
@@ -77,7 +77,7 @@ export function Process() {
   });
 
   return (
-    <section id="process" className="relative overflow-hidden py-24">
+    <section id="process" className="relative overflow-hidden section-padding">
       {/* Background */}
       <div className="absolute inset-0 grid-dots opacity-20 pointer-events-none" />
       <div
@@ -90,7 +90,7 @@ export function Process() {
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -103,7 +103,7 @@ export function Process() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6"
+            className="heading-lg text-white mb-6 text-center"
           >
             Our{" "}
             <span className="text-gradient">Development Process</span>
@@ -112,7 +112,7 @@ export function Process() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
           >
             A proven 6-step process refined over 6 years and 800+ projects. Transparent,
             predictable, and built for results.
@@ -172,9 +172,9 @@ export function Process() {
                         }}
                       />
 
-                      <div className={`flex items-start gap-5 ${isEven ? "md:flex-row-reverse" : ""}`}>
+                      <div className="flex flex-col items-center gap-5 text-center">
                         <div
-                          className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[12deg]"
+                          className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[12deg] mx-auto"
                           style={{
                             background: `${step.color}15`,
                             border: `1px solid ${step.color}25`,
@@ -182,8 +182,8 @@ export function Process() {
                         >
                           {step.icon}
                         </div>
-                        <div className={`flex-1 ${isEven ? "md:text-right" : ""}`}>
-                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <div className="flex-1 flex flex-col items-center">
+                          <div className="flex items-center gap-2 mb-2 flex-wrap justify-center">
                             <span className="text-xs font-bold text-white/20">{step.step}</span>
                             <span
                               className="text-xs font-semibold px-2.5 py-0.5 rounded-full"
@@ -196,11 +196,11 @@ export function Process() {
                               {step.duration}
                             </span>
                           </div>
-                          <h3 className="font-bold text-white text-xl mb-3">{step.title}</h3>
-                          <p className="text-sm text-white/45 leading-relaxed mb-5">
+                          <h3 className="font-bold text-white text-xl mb-3 text-center">{step.title}</h3>
+                          <p className="text-sm text-white/45 leading-relaxed mb-5 text-center">
                             {step.description}
                           </p>
-                          <div className={`flex flex-wrap gap-1.5 ${isEven ? "md:justify-end" : ""}`}>
+                          <div className="flex flex-wrap gap-1.5 justify-center">
                             {step.deliverables.map((d) => (
                               <span
                                 key={d}

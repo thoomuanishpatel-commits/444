@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, ChevronDown, ArrowUpRight, Moon, Sun } from "lucide-react";
@@ -21,7 +21,11 @@ const megaMenuServices = services.slice(0, 8);
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -29,8 +33,8 @@ export function Navbar() {
   const megaTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -59,8 +63,8 @@ export function Navbar() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.8 }}
         className={`fixed top-0 left-0 right-0 z-[900] transition-all duration-500 ${
           scrolled
-            ? "py-5 bg-white/20 dark:bg-black/40 backdrop-blur-md border-b border-black/[0.03] dark:border-white/[0.05] shadow-glass-premium"
-            : "py-8 bg-transparent"
+            ? "py-4 bg-black/60 backdrop-blur-xl border-b border-white/[0.06] shadow-glass"
+            : "py-7 bg-transparent"
         }`}
       >
         <Container className="flex items-center justify-between">
@@ -70,16 +74,10 @@ export function Navbar() {
             className="flex items-center gap-3 group"
             onClick={() => scrollTo("#")}
           >
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-black text-sm transition-all duration-300 group-hover:scale-105"
-              style={{
-                background: "gradient-to-br from-[#0ea5e9] to-[#7c3aed]",
-                boxShadow: "0 0 20px rgba(14,165,233,0.3)",
-              }}
-            >
+            <div className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-black text-sm transition-all duration-300 group-hover:scale-105 bg-gradient-to-br from-brand-blue to-brand-purple shadow-glow-sm-blue">
               A
             </div>
-            <span className="font-black text-xl tracking-tight text-white">
+            <span className="font-display font-black text-xl tracking-tight text-white">
               AARIVON
             </span>
           </Link>
@@ -231,6 +229,7 @@ export function Navbar() {
               <button
                 onClick={() => setMobileOpen(false)}
                 className="w-10 h-10 rounded-lg flex items-center justify-center glass text-white/70"
+                aria-label="Close menu"
               >
                 <X size={18} />
               </button>

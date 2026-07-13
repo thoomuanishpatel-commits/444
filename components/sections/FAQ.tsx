@@ -14,19 +14,19 @@ export function FAQ() {
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   return (
-    <section id="faq" className="relative overflow-hidden py-24 alt-bg">
+    <section id="faq" className="relative overflow-hidden section-padding alt-bg">
       {/* Background */}
       <div className="absolute inset-0 grid-dots opacity-15 pointer-events-none" />
 
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
           {/* Left panel */}
-          <div className="lg:col-span-2 lg:sticky lg:top-28" ref={ref}>
+          <div className="lg:col-span-2 lg:sticky lg:top-28 flex flex-col items-center lg:items-start text-center lg:text-left" ref={ref}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex section-label mb-4"
+              className="inline-flex section-label mb-4 mx-auto lg:mx-0"
             >
               FAQ
             </motion.div>
@@ -34,7 +34,7 @@ export function FAQ() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="heading-md text-white mb-6"
+              className="heading-md text-white mb-6 text-center lg:text-left"
             >
               Frequently Asked{" "}
               <span className="text-gradient">Questions</span>
@@ -43,7 +43,7 @@ export function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-white/45 text-sm leading-relaxed mb-8"
+              className="text-white/45 text-sm leading-relaxed mb-8 text-center lg:text-left mt-6"
             >
               Everything you need to know about working with AARIVON. Can&apos;t find your
               answer? We&apos;re always happy to chat.

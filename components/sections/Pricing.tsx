@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { websitePricing, appPricing } from "@/data/pricing";
-import { Check, ArrowUpRight, Zap, Star } from "lucide-react";
+import { Check, ArrowUpRight, Star } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 
 function PricingCard({
@@ -138,7 +138,7 @@ export function Pricing() {
   const plans = activeTab === "website" ? websitePricing : appPricing;
 
   return (
-    <section id="pricing" className="relative overflow-hidden py-24 alt-bg">
+    <section id="pricing" className="relative overflow-hidden section-padding alt-bg">
       {/* Background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -150,7 +150,7 @@ export function Pricing() {
 
       <Container>
         {/* Header */}
-        <div ref={ref} className="text-center max-w-3xl mx-auto mb-16">
+        <div ref={ref} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -163,7 +163,7 @@ export function Pricing() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="heading-lg text-white mb-6"
+            className="heading-lg text-white mb-6 text-center"
           >
             Premium Quality,{" "}
             <span className="text-gradient">Fair Pricing</span>
@@ -172,7 +172,7 @@ export function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="body-lg max-w-2xl mx-auto text-white/50"
+            className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
           >
             No hidden fees. No surprises. Just honest pricing for world-class work. All plans
             include free consultation and project kickoff within 48 hours.

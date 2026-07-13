@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Loader() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
-  const [exiting, setExiting] = useState(false);
 
   useEffect(() => {
     // Simulate loading progress
@@ -26,7 +25,6 @@ export function Loader() {
     });
 
     const exitTimer = setTimeout(() => {
-      setExiting(true);
       setTimeout(() => setLoading(false), 800);
     }, 1600);
 
@@ -56,13 +54,12 @@ export function Loader() {
             {/* Logo mark */}
             <div className="relative">
               <motion.div
-                className="w-20 h-20 rounded-2xl flex items-center justify-center"
+                className="w-20 h-20 rounded-2xl flex items-center justify-center bg-gradient-to-br from-brand-blue to-brand-purple"
                 style={{
-                  background: "linear-gradient(135deg, #0ea5e9, #7c3aed)",
                   boxShadow: "0 0 60px rgba(14,165,233,0.4), 0 0 120px rgba(124,58,237,0.2)",
                 }}
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 2, ease: "linear", repeat: Infinity }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
               >
                 <span className="text-3xl font-black text-white tracking-tighter">A</span>
               </motion.div>

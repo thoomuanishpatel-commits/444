@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Send, ArrowUp } from "lucide-react";
 import { FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaYoutube } from "react-icons/fa";
-import Link from "next/link";
 import toast from "react-hot-toast";
 
 const footerLinks = {
@@ -94,8 +93,15 @@ export function Footer() {
 
       <div className="relative z-10">
         {/* CTA Banner */}
-        <div className="border-b border-white/[0.05]">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center">
+        <div className="border-b border-white/[0.05] relative overflow-hidden">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 70% 80% at 50% 0%, rgba(14,165,233,0.08) 0%, transparent 70%)",
+            }}
+          />
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +111,7 @@ export function Footer() {
               <p className="text-xs text-white/30 uppercase tracking-[0.3em] font-semibold mb-3">
                 Ready to get started?
               </p>
-              <h2 className="heading-md text-white mb-8">
+              <h2 className="heading-md font-display text-white mb-8">
                 Your Next Digital Project{" "}
                 <span className="text-gradient">Starts Here</span>
               </h2>
@@ -197,7 +203,7 @@ export function Footer() {
             </div>
 
             {/* Links columns */}
-            {Object.entries(footerLinks).map(([category, links], ci) => (
+            {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
                 <h4 className="text-xs font-bold text-white/60 uppercase tracking-widest mb-4">
                   {category}

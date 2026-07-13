@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "jetro": {
+      "command": "/Users/thumuanish/.jetro/runtime/node-darwin-arm64",
+      "args": [
+        "/Users/thumuanish/.jetro/mcp-server/index.js"
+      ],
+      "env": {
+        "JET_WORKSPACE": "/Users/thumuanish/projects/aarivon",
+        "JET_API_URL": "https://api.jetro.ai",
+        "PATH": "/Users/thumuanish/.jetro/runtime:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin"
+      }
+    }
+  }
+}

@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowUpRight, Play, ChevronDown, Sparkles, Zap, Globe } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, type Variants } from "framer-motion";
+import { ArrowUpRight, Play, Sparkles } from "lucide-react";
 import { SmoothCounter } from "@/components/ui/SmoothCounter";
-import { useInView } from "react-intersection-observer";
 import { Container } from "@/components/layout/Container";
 
 const stats = [
@@ -21,7 +20,7 @@ const floatingBadges = [
   { icon: "🔒", text: "99.9% Uptime", delay: 0.9, x: "10%", y: "72%" },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -32,22 +31,20 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1] as any,
+      ease: [0.16, 1, 0.3, 1],
     },
   },
 };
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { ref: inViewRef, inView } = useInView({ triggerOnce: true });
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   // Mouse tracking for glow effect
   const mouseX = useMotionValue(0);
@@ -65,7 +62,6 @@ export function Hero() {
       const y = ((e.clientY - rect.top) / rect.height) * 100;
       mouseX.set(x);
       mouseY.set(y);
-      setMousePos({ x: e.clientX, y: e.clientY });
     };
 
     el.addEventListener("mousemove", onMove);
@@ -88,7 +84,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
       {/* ── Animated Background ── */}
       <div className="absolute inset-0 z-0">
@@ -149,8 +145,8 @@ export function Hero() {
             width: "400px",
             height: "400px",
             background: "radial-gradient(circle, #0ea5e9 0%, transparent 70%)",
-            left: springX.get() + "%",
-            top: springY.get() + "%",
+            left: springX,
+            top: springY,
             translateX: "-50%",
             translateY: "-50%",
             x: "-50%",
@@ -197,7 +193,7 @@ export function Hero() {
       {floatingBadges.map((badge, i) => (
         <motion.div
           key={i}
-          className="absolute z-20 glass-strong rounded-2xl px-4 py-2.5 flex items-center gap-2.5 hidden lg:flex"
+          className="absolute z-20 glass-strong rounded-2xl px-4 py-2.5 flex items-center gap-2.5 hidden lg:flex border border-white/[0.08] shadow-glass"
           style={{ left: badge.x, top: badge.y }}
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{
@@ -234,17 +230,20 @@ export function Hero() {
           {/* Top badge */}
           <motion.div
             variants={itemVariants}
-            className="section-label gap-2 mb-6"
+            className="section-label gap-2 mb-6 max-w-full"
           >
-            <Sparkles size={12} />
-            <span>World-Class Digital Agency — Clutch 4.9/5 ★ (280+ Reviews)</span>
-            <Sparkles size={12} />
+            <Sparkles size={12} className="flex-shrink-0" />
+            <span className="truncate sm:whitespace-normal">
+              <span className="hidden sm:inline">World-Class Digital Agency — </span>
+              Clutch 4.9/5 ★ · 280+ Reviews
+            </span>
+            <Sparkles size={12} className="flex-shrink-0" />
           </motion.div>
 
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl lg:text-[80px] font-black text-white max-w-4xl mx-auto leading-[1.1] tracking-tighter mb-6 text-center"
+            className="font-display text-5xl md:text-7xl lg:text-[5.25rem] font-black text-white max-w-4xl mx-auto leading-[1.05] tracking-tight mb-6 text-center"
           >
             We Build{" "}
             <span className="text-gradient-animated">Digital Empires</span>
@@ -253,10 +252,7 @@ export function Hero() {
             <span className="relative inline-block text-center">
               The Future
               <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full"
-                style={{
-                  background: "gradient-to-r from-brand-blue via-brand-purple to-brand-cyan",
-                }}
+                className="absolute -bottom-2 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-brand-blue via-brand-purple to-brand-cyan"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 2.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -301,16 +297,15 @@ export function Hero() {
 
           {/* Stats */}
           <motion.div
-            ref={inViewRef}
             variants={itemVariants}
             className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 mt-6 border-t border-white/[0.08] w-full max-w-3xl mb-8 justify-items-center"
           >
             {stats.map((stat, i) => (
               <div key={i} className="flex flex-col items-center gap-2">
-                <div className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                <div className="text-3xl md:text-4xl font-extrabold text-gradient tracking-tight">
                   <SmoothCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-xs text-white/40 font-semibold text-center uppercase tracking-wider">
+                <div className="text-xs text-white/45 font-semibold text-center uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>

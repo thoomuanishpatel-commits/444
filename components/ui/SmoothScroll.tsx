@@ -13,10 +13,14 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
     if (initialized.current) return;
     initialized.current = true;
 
-    // Dynamically import Lenis to avoid SSR issues
+    let disposed = false;
+    let rafId: number | undefined;
+    let lenisInstance: { raf: (time: number) => void; destroy: () => void } | undefined;
+
     const initLenis = async () => {
       try {
         const Lenis = (await import("lenis")).default;
+        if (disposed) return;
         const lenis = new Lenis({
           duration: 1.2,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -27,24 +31,25 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
           touchMultiplier: 2,
         });
 
-        // Expose lenis globally for GSAP ScrollTrigger
-        (window as any).lenis = lenis;
+        lenisInstance = lenis;
 
         const raf = (time: number) => {
           lenis.raf(time);
-          requestAnimationFrame(raf);
+          rafId = requestAnimationFrame(raf);
         };
-        requestAnimationFrame(raf);
-
-        return () => {
-          lenis.destroy();
-        };
-      } catch (e) {
+        rafId = requestAnimationFrame(raf);
+      } catch {
         console.warn("Lenis smooth scroll not available");
       }
     };
 
-    initLenis();
+    void initLenis();
+
+    return () => {
+      disposed = true;
+      if (rafId !== undefined) cancelAnimationFrame(rafId);
+      lenisInstance?.destroy();
+    };
   }, []);
 
   return <>{children}</>;

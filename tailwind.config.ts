@@ -201,6 +201,7 @@ const config: Config = {
         "glow-cyan": "0 0 30px rgba(6, 182, 212, 0.3)",
         "glow-sm-blue": "0 0 15px rgba(14, 165, 233, 0.2)",
         "glass": "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.05)",
+        "glass-premium": "0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.08)",
         "glass-hover": "0 16px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)",
         "card-dark": "0 4px 24px rgba(0, 0, 0, 0.4)",
         "card-hover": "0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(14, 165, 233, 0.1)",
