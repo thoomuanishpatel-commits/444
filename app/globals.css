@@ -230,20 +230,29 @@ h1, h2, h3, h4 {
   ─────────────────────────────────────────── */
 
   .section-padding {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-top: 64px;      /* 8px scale */
     padding-bottom: 64px;   /* 8px scale */
     box-sizing: border-box;
   }
-
+ 
   @media (min-width: 640px) {
     .section-padding {
+      min-height: 100vh;
+      min-height: 100dvh;
       padding-top: 96px;    /* 8px scale */
       padding-bottom: 96px;
     }
   }
-
+ 
   @media (min-width: 1024px) {
     .section-padding {
+      min-height: 100vh;
+      min-height: 100dvh;
       padding-top: 128px;   /* 8px scale */
       padding-bottom: 128px;
     }
