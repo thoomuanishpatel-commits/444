@@ -22,13 +22,13 @@ export function Industries() {
 
       <Container>
         {/* Header */}
-        <div className="max-w-3xl mb-16" style={{ marginLeft: "auto", marginRight: "auto" }}>
-          <div ref={ref} className="flex flex-col items-center text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div className="max-w-3xl mx-auto mb-16" ref={ref}>
+          <div className="flex flex-col items-center text-center gap-y-4 md:gap-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex section-label mb-4"
+              className="inline-flex section-label"
             >
               Industries We Serve
             </motion.div>
@@ -36,8 +36,7 @@ export function Industries() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="heading-lg text-white mb-6 text-center"
-              style={{ textAlign: "center", width: "100%" }}
+              className="heading-lg text-white text-center w-full"
             >
               Built For Every{" "}
               <span className="text-gradient">Industry</span>
@@ -46,8 +45,7 @@ export function Industries() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
-              style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+              className="body-lg max-w-2xl mx-auto text-white/50 text-center"
             >
               From startups to enterprises, from hospitals to hotels — we&apos;ve built
               digital solutions for virtually every sector.

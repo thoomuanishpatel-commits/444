@@ -19,14 +19,14 @@ export function FAQ() {
       <div className="absolute inset-0 grid-dots opacity-15 pointer-events-none" />
 
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-          {/* Left panel */}
-          <div className="lg:col-span-2 lg:sticky lg:top-28 flex flex-col items-center lg:items-start text-center lg:text-left" ref={ref}>
+        {/* Header */}
+        <div className="max-w-3xl mb-16" style={{ marginLeft: "auto", marginRight: "auto" }}>
+          <div ref={ref} className="flex flex-col items-center text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex section-label mb-4 mx-auto lg:mx-0"
+              className="inline-flex section-label mb-4"
             >
               FAQ
             </motion.div>
@@ -34,45 +34,28 @@ export function FAQ() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="heading-md text-white mb-6 text-center lg:text-left"
+              className="heading-lg text-white mb-6 text-center w-full"
+              style={{ textAlign: "center", width: "100%" }}
             >
-              Frequently Asked{" "}
-              <span className="text-gradient">Questions</span>
+              Frequently Asked <span className="text-gradient">Questions</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-white/45 text-sm leading-relaxed mb-8 text-center lg:text-left mt-6"
+              className="body-lg max-w-2xl mx-auto text-white/50 text-center"
+              style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
             >
               Everything you need to know about working with AARIVON. Can&apos;t find your
               answer? We&apos;re always happy to chat.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="glass-strong rounded-3xl p-6 lg:p-8"
-            >
-              <p className="text-base font-bold text-white mb-3">
-                Still have questions?
-              </p>
-              <p className="text-xs text-white/40 mb-6 leading-relaxed">
-                Our team is available Mon-Sat, 9am-6pm IST. We typically respond within 2 hours.
-              </p>
-              <button
-                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                className="btn-primary w-full justify-center text-sm"
-              >
-                <span>Contact Us</span>
-                <ArrowUpRight size={16} className="relative z-10" />
-              </button>
-            </motion.div>
           </div>
+        </div>
 
-          {/* Right accordion */}
-          <div className="lg:col-span-3">
+        {/* Content Layout - Centered Accordion + Card below */}
+        <div className="max-w-3xl mx-auto w-full flex flex-col gap-12" style={{ marginLeft: "auto", marginRight: "auto" }}>
+          {/* Accordion list */}
+          <div className="w-full">
             <div className="divide-y divide-white/[0.05]">
               {faqs.map((faq, i) => (
                 <motion.div
@@ -129,6 +112,32 @@ export function FAQ() {
               ))}
             </div>
           </div>
+
+          {/* Still have questions card - Centered at the bottom */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="glass-strong rounded-3xl p-6 lg:p-8 max-w-xl w-full mx-auto text-center"
+            style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+          >
+            <p className="text-base font-bold text-white mb-3 text-center">
+              Still have questions?
+            </p>
+            <p className="text-xs text-white/40 mb-6 leading-relaxed text-center">
+              Our team is available Mon-Sat, 9am-6pm IST. We typically respond within 2 hours.
+            </p>
+            <div className="flex justify-center w-full">
+              <button
+                onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="btn-primary px-8 h-12 flex items-center justify-center gap-2 rounded-xl text-sm"
+                style={{ marginLeft: "auto", marginRight: "auto" }}
+              >
+                <span>Contact Us</span>
+                <ArrowUpRight size={16} className="relative z-10" />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>

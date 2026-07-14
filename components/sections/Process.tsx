@@ -90,13 +90,13 @@ export function Process() {
 
       <Container>
         {/* Header */}
-        <div className="max-w-3xl mb-16" style={{ marginLeft: "auto", marginRight: "auto" }}>
-          <div ref={ref} className="flex flex-col items-center text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div className="max-w-3xl mx-auto mb-16" ref={ref}>
+          <div className="flex flex-col items-center text-center gap-y-4 md:gap-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex section-label mb-4"
+              className="inline-flex section-label"
             >
               How We Work
             </motion.div>
@@ -104,8 +104,7 @@ export function Process() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="heading-lg text-white mb-6 text-center"
-              style={{ textAlign: "center", width: "100%" }}
+              className="heading-lg text-white text-center w-full"
             >
               Our{" "}
               <span className="text-gradient">Development Process</span>
@@ -114,8 +113,7 @@ export function Process() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
-              style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+              className="body-lg max-w-2xl mx-auto text-white/50 text-center"
             >
               A proven 6-step process refined over 6 years and 800+ projects. Transparent,
               predictable, and built for results.
@@ -233,9 +231,9 @@ export function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mt-16 sm:mt-20 lg:mt-24"
+          className="flex flex-col items-center text-center mt-16 sm:mt-20 lg:mt-24 gap-y-4"
         >
-          <p className="text-white/40 text-sm mb-4 font-medium">
+          <p className="text-white/40 text-sm font-medium">
             Ready to start? Your project kicks off within 48 hours.
           </p>
           <button

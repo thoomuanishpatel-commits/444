@@ -230,7 +230,7 @@ export function Hero() {
           {/* Top badge */}
           <motion.div
             variants={itemVariants}
-            className="section-label gap-2 mb-6 max-w-full"
+            className="section-label gap-2 mb-8 max-w-full"
           >
             <Sparkles size={12} className="flex-shrink-0" />
             <span className="truncate sm:whitespace-normal">
@@ -243,8 +243,7 @@ export function Hero() {
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-display text-5xl md:text-7xl lg:text-[5.25rem] font-black text-white max-w-4xl mx-auto leading-[1.05] tracking-tight mb-6 text-center"
-            style={{ textAlign: "center", width: "100%", marginLeft: "auto", marginRight: "auto" }}
+            className="font-display text-5xl md:text-7xl lg:text-[5.25rem] font-black text-white max-w-4xl mx-auto leading-[1.05] tracking-tight mb-8 text-center w-full"
           >
             We Build{" "}
             <span className="text-gradient-animated">Digital Empires</span>
@@ -264,8 +263,7 @@ export function Hero() {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="body-lg max-w-2xl mb-8 leading-[1.8] text-white/55 text-center mx-auto"
-            style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+            className="body-lg max-w-2xl mb-12 leading-[1.8] text-white/55 text-center mx-auto"
           >
             AARIVON is a premium digital agency crafting world-class websites, mobile apps,
             AI solutions, and brand identities for companies that refuse to settle for ordinary.
@@ -274,7 +272,7 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-20 justify-items-center"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-md w-full mb-24 justify-items-center"
           >
             <button
               onClick={scrollToContact}

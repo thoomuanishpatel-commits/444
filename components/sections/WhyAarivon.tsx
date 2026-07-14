@@ -80,13 +80,13 @@ export function WhyAarivon() {
 
       <Container>
         {/* Header */}
-        <div className="max-w-3xl mb-16" style={{ marginLeft: "auto", marginRight: "auto" }}>
-          <div ref={ref} className="flex flex-col items-center text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+        <div className="max-w-3xl mx-auto mb-16" ref={ref}>
+          <div className="flex flex-col items-center text-center gap-y-4 md:gap-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex section-label mb-4"
+              className="inline-flex section-label"
             >
               Why Choose AARIVON
             </motion.div>
@@ -94,8 +94,7 @@ export function WhyAarivon() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="heading-lg text-white mb-6 text-center"
-              style={{ textAlign: "center", width: "100%" }}
+              className="heading-lg text-white text-center w-full"
             >
               The{" "}
               <span className="text-gradient">AARIVON Difference</span>
@@ -104,8 +103,7 @@ export function WhyAarivon() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="body-lg max-w-2xl mx-auto text-white/50 mt-6 text-center"
-              style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}
+              className="body-lg max-w-2xl mx-auto text-white/50 text-center"
             >
               We&apos;re not just another agency. We&apos;re your strategic technology
               partner — obsessed with quality, driven by results, committed to your
@@ -185,32 +183,35 @@ export function WhyAarivon() {
         {/* Spacing between grid and second block */}
         <div className="h-16 sm:h-20 lg:h-24 pointer-events-none" />
 
-        {/* Second Content Block - Perfectly aligned to center vertical grid */}
-        <div className="flex flex-col items-center text-center max-w-4xl" style={{ marginLeft: "auto", marginRight: "auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-          {/* Stars */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Star size={16} className="text-yellow-400" fill="currentColor" />
-            <Star size={16} className="text-yellow-400" fill="currentColor" />
-            <Star size={16} className="text-yellow-400" fill="currentColor" />
-            <Star size={16} className="text-yellow-400" fill="currentColor" />
-            <Star size={16} className="text-yellow-400" fill="currentColor" />
-            <span className="text-sm text-white/40 ml-1 font-medium">5.0 from 500+ reviews</span>
+        {/* Second Content Block - Perfectly aligned to center vertical grid with clean spacing */}
+        <div className="flex flex-col items-center text-center max-w-4xl w-full mx-auto gap-y-12 md:gap-y-16 mt-16 md:mt-24">
+          {/* Header Text Group */}
+          <div className="flex flex-col items-center text-center gap-y-4 max-w-3xl w-full">
+            {/* Stars */}
+            <div className="flex items-center justify-center gap-2">
+              <Star size={16} className="text-yellow-400" fill="currentColor" />
+              <Star size={16} className="text-yellow-400" fill="currentColor" />
+              <Star size={16} className="text-yellow-400" fill="currentColor" />
+              <Star size={16} className="text-yellow-400" fill="currentColor" />
+              <Star size={16} className="text-yellow-400" fill="currentColor" />
+              <span className="text-sm text-white/40 ml-1 font-medium">5.0 from 500+ reviews</span>
+            </div>
+
+            {/* Heading */}
+            <h3 className="text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight text-center" style={{ textAlign: "center", width: "100%" }}>
+              The Agency That Thinks Like a <span className="text-gradient">Tech Company</span>
+            </h3>
+
+            {/* Paragraph */}
+            <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto text-center mt-2" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+              Most agencies deliver pretty pictures. We deliver strategic digital
+              infrastructure. Every decision we make is backed by data, aligned
+              with your business goals, and built to scale.
+            </p>
           </div>
 
-          {/* Heading */}
-          <h3 className="text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight text-center" style={{ textAlign: "center", width: "100%" }}>
-            The Agency That Thinks Like a <span className="text-gradient">Tech Company</span>
-          </h3>
-
-          {/* Paragraph */}
-          <p className="text-white/50 leading-relaxed text-sm max-w-xl mx-auto mb-12 text-center mt-6" style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
-            Most agencies deliver pretty pictures. We deliver strategic digital
-            infrastructure. Every decision we make is backed by data, aligned
-            with your business goals, and built to scale.
-          </p>
-
           {/* Statistics Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-16 justify-items-center" style={{ marginLeft: "auto", marginRight: "auto" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full justify-items-center" style={{ marginLeft: "auto", marginRight: "auto" }}>
             {[
               { value: "500+", label: "Happy Clients" },
               { value: "6+", label: "Years" },
@@ -230,7 +231,7 @@ export function WhyAarivon() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-3xl mb-12 border border-white/10 rounded-[24px] overflow-hidden"
+            className="w-full max-w-3xl border border-white/10 rounded-[24px] overflow-hidden"
             style={{ marginLeft: "auto", marginRight: "auto" }}
           >
             <div className="glass-strong p-8 md:p-10 text-center flex flex-col items-center w-full">
