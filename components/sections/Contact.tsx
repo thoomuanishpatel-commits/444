@@ -93,8 +93,8 @@ export function Contact() {
 
       <Container>
         {/* Header */}
-        <div className="max-w-3xl mx-auto mb-16" ref={ref}>
-          <div className="flex flex-col items-center text-center gap-y-4 md:gap-y-6">
+        <div className="max-w-3xl mx-auto mb-16 w-full" ref={ref} style={{ marginLeft: "auto", marginRight: "auto", width: "100%" }}>
+          <div className="flex flex-col items-center text-center gap-y-4 md:gap-y-6 w-full" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", width: "100%" }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
