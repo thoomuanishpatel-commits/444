@@ -908,9 +908,60 @@ function EcommerceSimulator() {
 
 export function Services() {
   const [activeTab, setActiveTab] = useState<string>("web-dev");
+  const [direction, setDirection] = useState<number>(1);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const inactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const activeService = services.find((s) => s.id === activeTab) || services[0];
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    autoplayIntervalRef.current = setInterval(() => {
+      setActiveTab((prev) => {
+        const currentIndex = services.findIndex((s) => s.id === prev);
+        const nextIndex = (currentIndex + 1) % 8;
+        setDirection(1);
+        return services[nextIndex].id;
+      });
+    }, 5000);
+  };
+
+  const stopAutoplay = () => {
+    if (autoplayIntervalRef.current) {
+      clearInterval(autoplayIntervalRef.current);
+      autoplayIntervalRef.current = null;
+    }
+  };
+
+  const resetInactivityTimer = () => {
+    if (inactivityTimeoutRef.current) {
+      clearTimeout(inactivityTimeoutRef.current);
+    }
+    inactivityTimeoutRef.current = setTimeout(() => {
+      startAutoplay();
+    }, 8000);
+  };
+
+  const handleUserActivity = (tabId: string) => {
+    stopAutoplay();
+    const prevIndex = services.findIndex((s) => s.id === activeTab);
+    const nextIndex = services.findIndex((s) => s.id === tabId);
+    setDirection(nextIndex > prevIndex ? 1 : -1);
+    setActiveTab(tabId);
+    resetInactivityTimer();
+  };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => {
+      stopAutoplay();
+      if (inactivityTimeoutRef.current) {
+        clearTimeout(inactivityTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const renderSimulator = () => {
     switch (activeTab) {
@@ -992,25 +1043,32 @@ export function Services() {
               return (
                 <button
                   key={service.id}
-                  onClick={() => setActiveTab(service.id)}
-                  onMouseEnter={() => setActiveTab(service.id)}
+                  onClick={() => handleUserActivity(service.id)}
+                  onMouseEnter={() => handleUserActivity(service.id)}
                   className={`group text-left p-4 sm:p-5 rounded-2xl border transition-all duration-500 flex items-center justify-between relative overflow-hidden ${
                     active
-                      ? "glass-strong scale-[1.01] shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
+                      ? "scale-[1.01] shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
                       : "glass hover:bg-white/[0.03] hover:border-white/12"
                   }`}
                   style={{
                     borderColor: active ? `${service.glowColor}40` : "rgba(255, 255, 255, 0.08)",
                   }}
                 >
-                  {/* Subtle color highlight background for active */}
+                  {/* Glassmorphic Selection Background Scan with sweep effect */}
                   {active && (
-                    <div
-                      className="absolute inset-0 opacity-[0.03] transition-opacity pointer-events-none"
-                      style={{
-                        background: `radial-gradient(circle at 0% 50%, ${service.glowColor} 0%, transparent 60%)`,
-                      }}
-                    />
+                    <>
+                      <motion.div
+                        layoutId="active-service-bg"
+                        className="absolute inset-0 z-0 backdrop-blur-md bg-white/40 dark:bg-white/5 border border-white/20 dark:border-white/10 shadow-lg rounded-2xl"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                      <motion.div
+                        className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                        initial={{ x: "-100%" }}
+                        animate={{ x: "100%" }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                      />
+                    </>
                   )}
 
                   {/* Left Side Info */}
@@ -1078,31 +1136,57 @@ export function Services() {
                 style={{ backgroundColor: activeService.glowColor }}
               />
 
-              {/* Simulator Screen Header */}
-              <div className="flex justify-between items-center border-b border-white/[0.08] pb-4 mb-6 relative z-10">
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-9 h-9 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${activeService.gradient}`}
-                    style={{ boxShadow: `0 0 15px ${activeService.glowColor}40` }}
-                  >
-                    {getServiceIcon(activeService.id, true)}
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-sm font-bold text-white leading-tight">{activeService.title}</h3>
-                    <p className="text-[10px] text-white/45 mt-0.5">AARIVON Capability Sandbox</p>
-                  </div>
-                </div>
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={activeTab}
+                  custom={direction}
+                  variants={{
+                    enter: (dir: number) => ({
+                      y: dir > 0 ? 20 : -20,
+                      opacity: 0
+                    }),
+                    center: {
+                      y: 0,
+                      opacity: 1
+                    },
+                    exit: (dir: number) => ({
+                      y: dir > 0 ? -20 : 20,
+                      opacity: 0
+                    })
+                  }}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex flex-col justify-between flex-1 relative z-10 h-full"
+                >
+                  {/* Simulator Screen Header */}
+                  <div className="flex justify-between items-center border-b border-white/[0.08] pb-4 mb-6">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center text-white bg-gradient-to-br ${activeService.gradient}`}
+                        style={{ boxShadow: `0 0 15px ${activeService.glowColor}40` }}
+                      >
+                        {getServiceIcon(activeService.id, true)}
+                      </div>
+                      <div className="text-left">
+                        <h3 className="text-sm font-bold text-white leading-tight">{activeService.title}</h3>
+                        <p className="text-[10px] text-white/45 mt-0.5">AARIVON Capability Sandbox</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-center gap-1.5 text-[9px] text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Interactive
-                </div>
-              </div>
+                    <div className="flex items-center gap-1.5 text-[9px] text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Interactive
+                    </div>
+                  </div>
 
-              {/* Core Rendered Simulator */}
-              <div className="flex-1 relative z-10 flex flex-col justify-between">
-                {renderSimulator()}
-              </div>
+                  {/* Core Rendered Simulator */}
+                  <div className="flex-grow flex flex-col justify-between">
+                    {renderSimulator()}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
